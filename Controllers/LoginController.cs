@@ -17,6 +17,7 @@ namespace McIntashLaptops.Controllers
 
             if(securityService.IsValid(user))
             {
+                HttpContext.Session.SetString("list", "true");
                 return View("LoginSuccess",securityService.GetUser(user));
             } else
             {

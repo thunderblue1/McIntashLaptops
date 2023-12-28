@@ -16,6 +16,7 @@ namespace McIntashLaptops.Controllers
         public IActionResult Index()
         {
             ViewBag.Title = "Home";
+            HttpContext.Session.SetString("list", "false");
             return View();
         }
 
