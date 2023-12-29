@@ -1,5 +1,10 @@
-﻿
-    <h1>Sorry.  You must be logged in.</h1>
-    <p>
-        Please log in and then you will gain the ability to manage products.
-    </p>
+﻿@model IEnumerable<McIntashLaptops.Models.LaptopModel>
+
+<div class="container d-flex flex-wrap" id="carded" data-present="present">
+    @foreach (var item in Model)
+    {
+        <partial name="_laptopCard" model="item" /> 
+    }
+</div>
+
+<partial name="_editModal" />

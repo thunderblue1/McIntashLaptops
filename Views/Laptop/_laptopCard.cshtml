@@ -1,0 +1,31 @@
+﻿@model McIntashLaptops.Models.LaptopModel
+
+<div id="card-number-@Model.Id" class="card" style="width: 18rem; margin: 5px;">
+    <img src="@Model.Photo" class="card-img-top">
+    <div class="card-body" style="width: 18rem;">
+        <h5 class="card-title">@Model.Name</h5>
+
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Id): @Html.DisplayFor(modelItem=>Model.Id)</p>
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Price): @Html.DisplayFor(modelItem=>Model.Price)</p>
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Processor): @Html.DisplayFor(modelItem=>Model.Processor)</p>
+
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Ram): @Html.DisplayFor(modelItem=>Model.Ram)</p>
+        <p class="card-text">@Html.DisplayNameFor(model => Model.DriveSize): @Html.DisplayFor(modelItem=>Model.DriveSize)</p>
+        <p class="card-text">@Html.DisplayNameFor(model => Model.GraphicsCard): @Html.DisplayFor(modelItem=>Model.GraphicsCard)</p>
+
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Weight): @Html.DisplayFor(modelItem=>Model.Weight)</p>
+        <p class="card-text">@Html.DisplayNameFor(model => Model.OperatingSystem): @Html.DisplayFor(modelItem=>Model.OperatingSystem)</p>
+
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Description): @Html.DisplayFor(modelItem=>Model.Description)</p>
+    </div>
+    <div class="card-footer">
+        <div class="row mt-auto no-gutters">
+            <a href="/Laptop/ShowOneLaptop/@Model.Id" class="btn btn-primary w-100">Show Details</a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-warning edit-laptop-button w-50" style="width:100px" value="@Model.Id" data-bs-toggle="modal" data-bs-target="#editForm">
+                Edit
+            </button>
+            <a href="/Laptop/Delete/@Model.Id" class="btn btn-danger w-50" style="width:100px">Delete</a>
+        </div>
+    </div>
+</div>

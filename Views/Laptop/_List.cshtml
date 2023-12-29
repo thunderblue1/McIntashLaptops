@@ -1,11 +1,8 @@
 ﻿@model IEnumerable<McIntashLaptops.Models.LaptopModel>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-<table class="table">
-    <thead>
+<div id="listed" data-present="present" />
+<table class="table table-light table-hover">
+    <thead class="table-primary">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -32,7 +29,7 @@
                 @Html.DisplayNameFor(model => model.DriveSize)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.graphics_card)
+                @Html.DisplayNameFor(model => model.GraphicsCard)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Weight)
@@ -46,7 +43,8 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr id="row-number-@item.Id">
+  
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
@@ -72,7 +70,7 @@
                     @Html.DisplayFor(modelItem => item.DriveSize)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.graphics_card)
+                    @Html.DisplayFor(modelItem => item.GraphicsCard)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Weight)
@@ -80,12 +78,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.OperatingSystem)
                 </td>
+
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    <a href="/Laptop/ShowOneLaptop/@item.Id" class="btn btn-primary w-100">Show Details</a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-warning edit-laptop-button w-100" value="@item.Id" data-bs-toggle="modal" data-bs-target="#editForm">
+                        Edit
+                    </button>
+                    <a href="/Laptop/Delete/@item.Id" class="btn btn-danger w-100">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<partial name="_editModal" />

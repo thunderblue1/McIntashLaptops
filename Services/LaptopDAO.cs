@@ -43,7 +43,30 @@ namespace McIntashLaptops.Services
 
         public LaptopModel GetLaptopById(int id)
         {
-            throw new NotImplementedException();
+            LaptopModel laptop = new LaptopModel();
+            string sqlStatement = "select * from dbo.laptop where id=@myId";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+                command.Parameters.AddWithValue("myId", id);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        laptop = new LaptopModel((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], (decimal)reader[4], (string)reader[5], (string)reader[6], (string)reader[7], (string)reader[8], (string)reader[9], (string)reader[10]);
+                        return laptop;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return laptop;
         }
 
         public int Insert(LaptopModel laptop)
@@ -54,7 +77,7 @@ namespace McIntashLaptops.Services
         public List<LaptopModel> SearchLaptops(string searchTerm)
         {
             List<LaptopModel> list = new List<LaptopModel>();
-            string sqlStatement = "select * from dbo.laptop where name like @searchTerm or description like @searchTerm";
+            string sqlStatement = "select * from dbo.laptop where name like @searchTerm or description like @searchTerm or id like @searchTerm";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -81,7 +104,33 @@ namespace McIntashLaptops.Services
 
         public int Update(LaptopModel laptop)
         {
-            throw new NotImplementedException();
+            int newIdNumber = -1;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE dbo.laptop SET photo=@Photo, name=@Name, description = @Description, price=@Price, processor=@Processor, ram=@Ram, drive_size=@DriveSize, graphics_card=@GraphicsCard, weight=@Weight, operating_system=@OperatingSystem WHERE id=@Id";
+                SqlCommand myCommand = new SqlCommand(query, connection);
+                myCommand.Parameters.AddWithValue("@Id", laptop.Id);
+                myCommand.Parameters.AddWithValue("@Photo", laptop.Photo);
+                myCommand.Parameters.AddWithValue("@Name", laptop.Name);
+                myCommand.Parameters.AddWithValue("@Description", laptop.Description);
+                myCommand.Parameters.AddWithValue("@Price", laptop.Price);
+                myCommand.Parameters.AddWithValue("@Processor", laptop.Processor);
+                myCommand.Parameters.AddWithValue("@Ram", laptop.Ram);
+                myCommand.Parameters.AddWithValue("@DriveSize", laptop.DriveSize);
+                myCommand.Parameters.AddWithValue("@GraphicsCard", laptop.GraphicsCard);
+                myCommand.Parameters.AddWithValue("@Weight", laptop.Weight);
+                myCommand.Parameters.AddWithValue("@OperatingSystem", laptop.OperatingSystem);
+                try
+                {
+                    connection.Open();
+                    newIdNumber = Convert.ToInt32(myCommand.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return newIdNumber;
         }
     }
 }

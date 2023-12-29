@@ -1,6 +1,8 @@
 ﻿using McIntashLaptops.Models;
 using McIntashLaptops.Services;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Core.Types;
+using System.Diagnostics;
 using System.Web;
 
 namespace McIntashLaptops.Controllers
@@ -23,9 +25,6 @@ namespace McIntashLaptops.Controllers
         {
             data.PageContent = laptopDAO.SearchLaptops(searchTerm);
             return View("Index");
-        }
-        public IActionResult SearchForm() {   
-            return View(); 
         }
         public IActionResult Toggle()
         {
@@ -56,5 +55,40 @@ namespace McIntashLaptops.Controllers
                 return PartialView("_Display", data.PageContent);
             }
         }
+        public IActionResult ShowOneLaptop(int Id)
+        {
+            return View(laptopDAO.GetLaptopById(Id));
+        }
+
+        public JsonResult ShowOneLaptopJSON(int Id)
+        {
+            return Json(laptopDAO.GetLaptopById(Id));
+        }
+
+        public ActionResult Delete(LaptopModel laptop)
+        {
+            bool success = laptopDAO.Delete(laptop);
+            if (success)
+            {
+                return View("Index");
+            }
+            else
+            {
+                ErrorViewModel m = new ErrorViewModel() { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier };
+                return View("Error", m);
+            }
+        }
+        public IActionResult SaveEditReturnNewCard (LaptopModel laptop)
+        {
+            laptopDAO.Update(laptop);
+            return PartialView("_laptopCard", laptop);
+        }
+
+        public IActionResult SaveEditReturnNewRow(LaptopModel laptop)
+        {
+            laptopDAO.Update(laptop);
+            return PartialView("_laptopRow", laptop);
+        }
+
     }
 }

@@ -1,24 +1,36 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace McIntashLaptops.Models
 {
     public class LaptopModel
     {
+        [DisplayName("Laptop Id")]
         public int Id { get; set; }
+        [DisplayName("Photo")]
         public string Photo { get; set; }
+        [DisplayName("Name")]
         public string Name { get; set; }
+        [DisplayName("Description")]
         public string Description { get; set; }
         [DataType(DataType.Currency)]
+        [DisplayName("Price")]
         public decimal Price { get; set; }
+        [DisplayName("Processor")]
         public string Processor { get; set; }
+        [DisplayName("Ram")]
         public string Ram { get; set; }
+        [DisplayName("Drive Size")]
         public string DriveSize { get; set; }
-        public string graphics_card { get; set; }
+        [DisplayName("Graphics Card")]
+        public string GraphicsCard { get; set; }
+        [DisplayName("Weight")]
         public string Weight { get; set; }
+        [DisplayName("Operating System")]
         public string OperatingSystem { get; set; }
         public LaptopModel() { }
 
-        public LaptopModel(int id, string photo, string name, string description, decimal price, string processor, string ram, string driveSize, string graphics_card, string weight, string operatingSystem)
+        public LaptopModel(int id, string photo, string name, string description, decimal price, string processor, string ram, string driveSize, string graphicsCard, string weight, string operatingSystem)
         {
             Id = id;
             Photo = photo;
@@ -28,7 +40,7 @@ namespace McIntashLaptops.Models
             Processor = processor;
             Ram = ram;
             DriveSize = driveSize;
-            this.graphics_card = graphics_card;
+            this.GraphicsCard = graphicsCard;
             Weight = weight;
             OperatingSystem = operatingSystem;
         }

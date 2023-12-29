@@ -1,0 +1,47 @@
+﻿@model McIntashLaptops.Models.LaptopModel
+
+<tr id="row-number-@Model.Id">
+
+    <td>
+        @Html.DisplayFor(modelItem => Model.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Photo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Processor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Ram)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.DriveSize)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.GraphicsCard)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Weight)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.OperatingSystem)
+    </td>
+
+    <td>
+        <a href="/Laptop/ShowOneLaptop/@Model.Id" class="btn btn-primary w-100">Show Details</a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-warning edit-laptop-button w-100" value="@Model.Id" data-bs-toggle="modal" data-bs-target="#editForm">
+            Edit
+        </button>
+        <a href="/Laptop/Delete/@Model.Id" class="btn btn-danger w-100">Delete</a>
+    </td>
+</tr>

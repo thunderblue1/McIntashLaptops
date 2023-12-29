@@ -1,7 +1,24 @@
-﻿<form>
-    <button id="ToggleButton" class="btn btn-primary" type="submit">
-        Toggle List/Display
-    </button>
-</form>
+﻿
+<div class="container">
+    <div class="row">
+        <div class="col col-md-3 col-sm-12">
+            <form>
+                <button id="ToggleButton" class="btn btn-primary" type="submit">
+                    Toggle List/Display
+                </button>
+            </form>
+        </div>
+        <div class="col col-md-3 col-sm-12">
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <partial name="_searchForm" />
+    </div>
+    <div class="row pt-3">
+        <div id="mydiv" data-present="present"></div>
+    </div>
+</div>
 
-<div id="mydiv" data-present="present"></div>
