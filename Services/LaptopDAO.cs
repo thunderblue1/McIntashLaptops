@@ -38,7 +38,29 @@ namespace McIntashLaptops.Services
 
         public bool Delete(LaptopModel laptop)
         {
-            throw new NotImplementedException();
+            int idNumber = -1;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "delete from dbo.laptop where id=@Id";
+                SqlCommand myCommand = new SqlCommand(query, connection);
+                myCommand.Parameters.AddWithValue("@Id", laptop.Id);
+
+                try
+                {
+                    connection.Open();
+                    idNumber = Convert.ToInt32(myCommand.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            if(idNumber!=-1)
+            {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         public LaptopModel GetLaptopById(int id)

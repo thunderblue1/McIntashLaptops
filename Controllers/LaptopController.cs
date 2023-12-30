@@ -65,18 +65,18 @@ namespace McIntashLaptops.Controllers
             return Json(laptopDAO.GetLaptopById(Id));
         }
 
-        public ActionResult Delete(LaptopModel laptop)
+        public bool Delete(LaptopModel laptop)
         {
             bool success = laptopDAO.Delete(laptop);
-            if (success)
+            foreach(LaptopModel found in data.PageContent)
             {
-                return View("Index");
+                if(found.Id==laptop.Id)
+                {
+                    data.PageContent.Remove(found);
+                    break;
+                }
             }
-            else
-            {
-                ErrorViewModel m = new ErrorViewModel() { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier };
-                return View("Error", m);
-            }
+            return success;
         }
         public IActionResult SaveEditReturnNewCard (LaptopModel laptop)
         {

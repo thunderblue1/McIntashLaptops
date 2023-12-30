@@ -2,6 +2,7 @@
     var url = "/Laptop/Toggle";
     var present = $("#mydiv").attr("data-present");
 
+    //Toggle between list and card display
     $("#ToggleButton").on("click", (e) => {
         e.preventDefault();
         getResults(url);
@@ -9,6 +10,8 @@
     if (present != null) {
         getResults("/Laptop/getResults");
     }
+
+    //Save the data in Edit form with save button
     $(document).on("click", '.save-button', (e) => {
         var url = '';
         var listPresent = $("#listed").attr("data-present");
@@ -20,7 +23,7 @@
             url = '/Laptop/SaveEditReturnNewRow';
         }
         console.log(url);
-        // get the values of the input fields and make a laptop JSON object.
+        // Get the values of the input fields and make a laptop JSON object.
         var Laptop = {
             "Id": $("#modal-input-id").val(),
             "Photo": $("#modal-input-photo").val(),
@@ -41,11 +44,11 @@
             data: Laptop,
             url: url,
             success: function (data) {
-                //show the partial update for testing purposes.
+                //Show the partial update for testing purposes.
                 console.log(data);
                 if (cardPresent == "present") {
                     console.log("YOU HAVE JUST BEEN CARDED.");
-                    //replace the proper card with the new data.
+                    //Replace the proper card with the new data.
                     $("#card-number-" + Laptop.Id).replaceWith(data);
                     $("#card-number-" + Laptop.Id).hide().fadeIn(2000);
 
@@ -58,6 +61,7 @@
             }
         })
     });
+    //Fill the Edit Form with data from chosen laptop
     $(document).on("click", ".edit-laptop-button", function () {
         console.log("You just clicked button number " + $(this).val());
         var laptopId = $(this).val();
@@ -86,8 +90,47 @@
         })
     });
 
+    //Remove Card or TD Cell from row after delete
+    $(document).on("click", ".delete-button", function (e) {
+        e.preventDefault();
+        var test = '';
+        var listPresent = $("#listed").attr("data-present");
+        var cardPresent = $("#carded").attr("data-present");
+        if (cardPresent == "present") {
+            test='Card';
+        }
+        if (listPresent == "present") {
+            test='List';
+        }
+        console.log("The following was used:"+test);
+
+        var Laptop = {"Id":$(this).val()}
+
+        $.ajax({
+            type: 'json',
+            data: Laptop,
+            url: 'Laptop/Delete',
+            success: function (data) {
+                //Show the partial update for testing purposes.
+                console.log(data);
+                if (cardPresent == "present") {
+                    console.log("The card has been deleted.");
+                    $("#card-number-" + Laptop.Id).hide().fadeOut(2000);
+                    $("#card-number-" + Laptop.Id).remove();
+
+                }
+                if (listPresent == "present") {
+                    console.log("The row has been deleted.");
+                    $("#row-number-" + Laptop.Id).animate({ 'line-height':0}, 1000).hide(1);
+                    $("#row-number-" + Laptop.Id).remove();
+                }
+            }
+        })
+    });
 });
 
+//Return List or Display partial view
+//Based on session variable "list"
 function getResults(myUrl) {
     $.ajax({
         type: 'POST',

@@ -85,7 +85,10 @@
                     <button type="button" class="btn btn-warning edit-laptop-button w-100" value="@item.Id" data-bs-toggle="modal" data-bs-target="#editForm">
                         Edit
                     </button>
-                    <a href="/Laptop/Delete/@item.Id" class="btn btn-danger w-100">Delete</a>
+                    <button type="button" class="btn btn-danger delete-button w-100" value="@item.Id">
+                        Delete
+                    </button>
+
                 </td>
             </tr>
         }
