@@ -1,0 +1,27 @@
+﻿@inject UserManager<ApplicationUser> userManager
+@inject RoleManager<IdentityRole> roleManager
+@using McIntashLaptops.Areas.Identity.Data;
+@using Microsoft.AspNetCore.Identity;
+@model ApplicationUser
+
+<h1>User</h1>
+
+@{
+    var myUserModel = new List<ApplicationUser>();
+    myUserModel.Add(Model);
+    var userRoles = new List<IdentityRole>();
+    var retrieved = await userManager.GetRolesAsync(Model);
+    foreach(string found in retrieved)
+    {
+        userRoles.Add(new IdentityRole(found));
+    }
+    var roles = roleManager.Roles;
+    ViewBag.UserRoleEmail = Model.Email;
+}
+<partial name="_userDetails" model=myUserModel />
+
+<h1>Roles the User Belongs To</h1>
+<partial name="_userRoles" model=userRoles/>
+
+<h1>Roles Available to Add</h1>
+<partial name="_addRoles" model=roles />

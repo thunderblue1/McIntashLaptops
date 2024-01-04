@@ -93,7 +93,32 @@ namespace McIntashLaptops.Services
 
         public int Insert(LaptopModel laptop)
         {
-            throw new NotImplementedException();
+            int newIdNumber = -1;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO dbo.laptop (photo, name, description, price, processor, ram, drive_size, graphics_card, weight, operating_system) OUTPUT INSERTED.id VALUES (@Photo, @Name, @Description, @Price, @Processor, @Ram, @DriveSize, @GraphicsCard, @Weight, @OperatingSystem)";
+                SqlCommand myCommand = new SqlCommand(query, connection);
+                myCommand.Parameters.AddWithValue("@Photo", laptop.Photo);
+                myCommand.Parameters.AddWithValue("@Name", laptop.Name);
+                myCommand.Parameters.AddWithValue("@Description", laptop.Description);
+                myCommand.Parameters.AddWithValue("@Price", laptop.Price);
+                myCommand.Parameters.AddWithValue("@Processor", laptop.Processor);
+                myCommand.Parameters.AddWithValue("@Ram", laptop.Ram);
+                myCommand.Parameters.AddWithValue("@DriveSize", laptop.DriveSize);
+                myCommand.Parameters.AddWithValue("@GraphicsCard", laptop.GraphicsCard);
+                myCommand.Parameters.AddWithValue("@Weight", laptop.Weight);
+                myCommand.Parameters.AddWithValue("@OperatingSystem", laptop.OperatingSystem);
+                try
+                {
+                    connection.Open();
+                    newIdNumber = Convert.ToInt32(myCommand.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return newIdNumber;
         }
 
         public List<LaptopModel> SearchLaptops(string searchTerm)

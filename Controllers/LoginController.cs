@@ -6,6 +6,13 @@ namespace McIntashLaptops.Controllers
 {
     public class LoginController : Controller
     {
+        SecurityService securityService;
+
+        public LoginController(SecurityService securityService)
+        {
+            this.securityService = securityService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -13,8 +20,6 @@ namespace McIntashLaptops.Controllers
 
         public IActionResult ProcessLogin(UserModel user)
         {
-            SecurityService securityService = new SecurityService();
-
             if(securityService.IsValid(user))
             {
                 HttpContext.Session.SetString("list", "true");

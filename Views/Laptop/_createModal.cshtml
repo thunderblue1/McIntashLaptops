@@ -1,5 +1,60 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!-- Modal -->
+<div class="modal fade" id="createForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Laptop</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="createValidation" style="color:red;font-size:18pt;"></div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="Photo" class="control-label">Photo:</label>
+                    <input id="modal-create-photo" for="Photo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="control-label">Name:</label>
+                    <input id="modal-create-name" for="Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Description" class="control-label">Description:</label>
+                    <textarea id="modal-create-description" for="Description" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Price" class="control-label">Price:</label>
+                    <input id="modal-create-price" for="Price" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Processor" class="control-label">Processor:</label>
+                    <input id="modal-create-processor" for="Processor" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Ram" class="control-label">Ram:</label>
+                    <input id="modal-create-ram" for="Ram" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="DriveSize" class="control-label">Drive Size:</label>
+                    <input id="modal-create-drivesize" for="DriveSize" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="GraphicsCard" class="control-label">Graphics Card:</label>
+                    <input id="modal-create-graphicscard" for="GraphicsCard" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Weight" class="control-label">Weight:</label>
+                    <input id="modal-create-weight" for="Weight" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="OperatingSystem" class="control-label">Operating System:</label>
+                    <input id="modal-create-operatingsystem" for="OperatingSystem" class="form-control" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning clear-form-button">Clear Form</button>
+                <button type="button" class="btn btn-primary create-button">Create</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 ﻿using McIntashLaptops.Models;
 using McIntashLaptops.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Web;
 
 namespace McIntashLaptops.Controllers
 {
+    [Authorize(Roles ="LaptopManager")]
     public class LaptopController : Controller
     {
         ILaptopDataService laptopDAO;
@@ -78,7 +80,7 @@ namespace McIntashLaptops.Controllers
             }
             return success;
         }
-        public IActionResult SaveEditReturnNewCard (LaptopModel laptop)
+        public IActionResult SaveEditReturnNewCard(LaptopModel laptop)
         {
             laptopDAO.Update(laptop);
             return PartialView("_laptopCard", laptop);
@@ -90,5 +92,30 @@ namespace McIntashLaptops.Controllers
             return PartialView("_laptopRow", laptop);
         }
 
+        public IActionResult SaveEditReturnDetails(LaptopModel laptop)
+        {
+            laptopDAO.Update(laptop);
+            return PartialView("_details", laptop);
+        }
+
+        public IActionResult CreateLaptop(LaptopModel laptop)
+        {
+            int newId = laptopDAO.Insert(laptop);
+
+            Console.WriteLine(newId);
+            LaptopModel laptopModel = laptopDAO.GetLaptopById(newId);
+            if (newId!=-1)
+            {
+                data.PageContent.Add(laptopModel);
+            }
+            if (HttpContext.Session.GetString("list") == "list")
+            {
+                return PartialView("_laptopRow", laptopModel);
+            }
+            else
+            {
+                return PartialView("_laptopCard", laptopModel);
+            }
+        }
     }
 }

@@ -1,7 +1,21 @@
 ﻿@model McIntashLaptops.Models.UserModel
+@inject IHttpContextAccessor HttpContextAccessor
 
 <h4>Login Page</h4>
 <hr />
+
+@if (ViewBag.error == true)
+{
+    <h1 class="text-center text-danger">Your username or password was not valid.</h1>
+}
+
+@if (ViewBag.registered == true)
+{
+    <h1 class="text-success bg-dark">Congratulations on a successful player registration.</h1>
+}
+@if(@HttpContextAccessor.HttpContext.Session.GetString("encrypted")!=null) {
+    @HttpContextAccessor.HttpContext.Session.GetString("encrypted");
+}
 <div class="row">
     <div class="col-md-4">
         <form asp-action="ProcessLogin">

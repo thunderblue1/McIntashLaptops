@@ -9,9 +9,9 @@
             </form>
         </div>
         <div class="col col-md-3 col-sm-12">
-            <p>
-                <a asp-action="Create">Create New</a>
-            </p>
+            <button type="button" class="btn btn-light create-laptop-button w-50" style="width:100px" data-bs-toggle="modal" data-bs-target="#createForm">
+                Create
+            </button>
         </div>
     </div>
     <div class="row pt-3">
@@ -22,3 +22,4 @@
     </div>
 </div>
 
+<partial name="_createModal" />

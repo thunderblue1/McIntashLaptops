@@ -1,8 +1,22 @@
+using McIntashLaptops.Models;
 using McIntashLaptops.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using McIntashLaptops.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddTransient<ILaptopDataService, LaptopDAO>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -12,6 +26,13 @@ builder.Services.AddSession(options => {
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+//Data protection services
+builder.Services.AddDataProtection();
+builder.Services.AddScoped<SecurityService>();
+
+//Add Identity
+//builder.Services.AddIdentity<UserModel, IdentityRole>();
 
 var app = builder.Build();
 
@@ -29,6 +50,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseSession();
+app.UseAuthentication();;
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
@@ -40,5 +62,7 @@ app.UseEndpoints(endpoints =>
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();

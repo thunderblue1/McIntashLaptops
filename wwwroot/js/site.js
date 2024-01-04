@@ -22,6 +22,9 @@
         if (listPresent == "present") {
             url = '/Laptop/SaveEditReturnNewRow';
         }
+        if (listPresent != "present" && cardPresent!="present") {
+            url ='/Laptop/SaveEditReturnDetails'
+        }
         console.log(url);
         // Get the values of the input fields and make a laptop JSON object.
         var Laptop = {
@@ -44,6 +47,7 @@
             data: Laptop,
             url: url,
             success: function (data) {
+                $("#editForm").modal('toggle');
                 //Show the partial update for testing purposes.
                 console.log(data);
                 if (cardPresent == "present") {
@@ -57,6 +61,11 @@
                     console.log("YOU HAVE JUST BEEN LISTED.");
                     $("#row-number-" + Laptop.Id).replaceWith(data);
                     $("#row-number-" + Laptop.Id).hide().fadeIn(2000);
+                }
+                if (listPresent != "present" && cardPresent != "present") {
+                    console.log("LaptopModel saved.  Nothing returned.");
+                    $("#details").html(data);
+                    $("#details").hide().fadeIn(2000);
                 }
             }
         })
@@ -90,6 +99,22 @@
         })
     });
 
+    //Clear Create Laptop Form
+    $(document).on("click", ".clear-form-button", function () {
+        //Fill the input fields in the modal
+        $("#modal-create-id").val("");
+        $("#modal-create-photo").val("");
+        $("#modal-create-name").val("");
+        $("#modal-create-description").val("");
+        $("#modal-create-price").val("");
+        $("#modal-create-processor").val("");
+        $("#modal-create-ram").val("");
+        $("#modal-create-drivesize").val("");
+        $("#modal-create-graphicscard").val("");
+        $("#modal-create-weight").val("");
+        $("#modal-create-operatingsystem").val("");
+    });
+
     //Remove Card or TD Cell from row after delete
     $(document).on("click", ".delete-button", function (e) {
         e.preventDefault();
@@ -121,11 +146,74 @@
                 }
                 if (listPresent == "present") {
                     console.log("The row has been deleted.");
-                    $("#row-number-" + Laptop.Id).animate({ 'line-height':0}, 1000).hide(1);
+                    $("#row-number-" + Laptop.Id).animate({ 'line-height':0}, 2000).hide(1);
                     $("#row-number-" + Laptop.Id).remove();
                 }
             }
         })
+    });
+
+    //Create button in modal clicked
+
+    $(document).on("click", ".create-button", function (e) {
+        e.preventDefault
+        var test = '';
+        var listPresent = $("#listed").attr("data-present");
+        var cardPresent = $("#carded").attr("data-present");
+        if (cardPresent == "present") {
+            test = 'Card';
+        }
+        if (listPresent == "present") {
+            test = 'List';
+        }
+        console.log("The following was used:" + test);
+
+        var Laptop = {
+            "Photo": $("#modal-create-photo").val(),
+            "Name": $("#modal-create-name").val(),
+            "Description": $("#modal-create-description").val(),
+            "Price": $("#modal-create-price").val(),
+            "Processor": $("#modal-create-processor").val(),
+            "Ram": $("#modal-create-ram").val(),
+            "driveSize": $("#modal-create-drivesize").val(),
+            "graphicsCard": $("#modal-create-graphicscard").val(),
+            "Weight": $("#modal-create-weight").val(),
+            "operatingSystem": $("#modal-create-operatingsystem").val()
+        }
+        console.log(Laptop);
+
+        var bad = false;
+        $.each(Laptop, function (i, n) {
+            if (n == "" || (n.length>255&&i!="Description")) {
+                bad = true;
+                alert(" The following property does not conform to requirements, Name: " + i + ", Value: " + n+", Length: "+n.length);
+            }
+        });
+
+        if (bad==true) {
+            $("#createValidation").html("All inputs need to have at least 1 character and no more than 255 characters.");
+        } else {
+
+            $.ajax({
+                type: 'json',
+                data: Laptop,
+                url: '/Laptop/CreateLaptop',
+                success: function (data) {
+                    $("#createForm").modal('toggle');
+                    //Show the partial update for testing purposes.
+                    console.log(data);
+
+                    if (cardPresent == "present") {
+                        console.log("Adding new card to container.");
+                        $("#carded").append(data).hide().fadeIn(2000);
+                    }
+                    if (listPresent == "present") {
+                        console.log("Adding new row to list.");
+                        $("#prettyTable").append(data).hide.fadeIn(2000);
+                    }
+                }
+            })
+        }
     });
 });
 
