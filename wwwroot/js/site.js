@@ -146,7 +146,7 @@
                 }
                 if (listPresent == "present") {
                     console.log("The row has been deleted.");
-                    $("#row-number-" + Laptop.Id).animate({ 'line-height':0}, 2000).hide(1);
+                    $("#row-number-" + Laptop.Id).animate({ height:'0px',opacity:0}, 2000);
                     $("#row-number-" + Laptop.Id).remove();
                 }
             }
@@ -169,6 +169,7 @@
         console.log("The following was used:" + test);
 
         var Laptop = {
+            "Id":1,
             "Photo": $("#modal-create-photo").val(),
             "Name": $("#modal-create-name").val(),
             "Description": $("#modal-create-description").val(),
@@ -209,7 +210,7 @@
                     }
                     if (listPresent == "present") {
                         console.log("Adding new row to list.");
-                        $("#prettyTable").append(data).hide.fadeIn(2000);
+                        $('#prettyTable>tbody:last').append(data).hide.fadeIn(2000);
                     }
                 }
             })

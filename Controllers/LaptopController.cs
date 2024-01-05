@@ -102,13 +102,12 @@ namespace McIntashLaptops.Controllers
         {
             int newId = laptopDAO.Insert(laptop);
 
-            Console.WriteLine(newId);
             LaptopModel laptopModel = laptopDAO.GetLaptopById(newId);
             if (newId!=-1)
             {
                 data.PageContent.Add(laptopModel);
             }
-            if (HttpContext.Session.GetString("list") == "list")
+            if (HttpContext.Session.GetString("list") == "true")
             {
                 return PartialView("_laptopRow", laptopModel);
             }
