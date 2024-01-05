@@ -134,7 +134,7 @@
         $.ajax({
             type: 'json',
             data: Laptop,
-            url: 'Laptop/Delete',
+            url: '/Laptop/Delete',
             success: function (data) {
                 //Show the partial update for testing purposes.
                 console.log(data);
@@ -187,7 +187,7 @@
         $.each(Laptop, function (i, n) {
             if (n == "" || (n.length>255&&i!="Description")) {
                 bad = true;
-                alert(" The following property does not conform to requirements, Name: " + i + ", Value: " + n+", Length: "+n.length);
+                //alert(" The following property does not conform to requirements, Name: " + i + ", Value: " + n+", Length: "+n.length);
             }
         });
 
@@ -210,7 +210,7 @@
                     }
                     if (listPresent == "present") {
                         console.log("Adding new row to list.");
-                        $('#prettyTable>tbody:last').append(data).hide.fadeIn(2000);
+                        $('#prettyTable>tbody:last').append(data).hide().fadeIn(2000);
                     }
                 }
             })
