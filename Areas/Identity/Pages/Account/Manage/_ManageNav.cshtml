@@ -12,7 +12,11 @@
     }
     <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
-    <li class="nav-item"><a class="nav-link text-light" id="register" asp-area="Identity" asp-page="/Account/Register">Register New User</a></li>
-    <li class="nav-item"><a class="nav-link text-light" asp-controller="UserRoles" asp-action="Index">Manage Roles</a></li>
-    <li class="nav-item"><a class="nav-link text-light" asp-controller="UserRoles" asp-action="ShowUsers">Manage Users Roles</a></li>
+    
+    @if(User.IsInRole("Manager")) {
+        <li class="nav-item"><a class="nav-link text-light" id="register" asp-area="Identity" asp-page="/Account/Register">Register New User</a></li>
+        <li class="nav-item"><a class="nav-link text-light" asp-controller="UserRoles" asp-action="Index">Manage Roles</a></li>
+        <li class="nav-item"><a class="nav-link text-light" asp-controller="UserRoles" asp-action="ShowUsers">Manage Users Roles</a></li>
+    }
+
 </ul>

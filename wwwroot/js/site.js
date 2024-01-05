@@ -140,14 +140,18 @@
                 console.log(data);
                 if (cardPresent == "present") {
                     console.log("The card has been deleted.");
-                    $("#card-number-" + Laptop.Id).hide().fadeOut(2000);
-                    $("#card-number-" + Laptop.Id).remove();
+                    $("#card-number-" + Laptop.Id).fadeOut(1000);
+                    setTimeout(function () {
+                        $("#card-number-" + Laptop.Id).remove();
+                    },1000)
 
                 }
                 if (listPresent == "present") {
                     console.log("The row has been deleted.");
-                    $("#row-number-" + Laptop.Id).animate({ height:'0px',opacity:0}, 2000);
-                    $("#row-number-" + Laptop.Id).remove();
+                    $("#row-number-" + Laptop.Id).fadeOut(1000);
+                    setTimeout(function () {
+                        $("#row-number-" + Laptop.Id).remove();
+                    }, 1000)
                 }
             }
         })
@@ -206,11 +210,13 @@
 
                     if (cardPresent == "present") {
                         console.log("Adding new card to container.");
-                        $("#carded").append(data).hide().fadeIn(2000);
+                        $("#carded").append(data);
+                        $("#carded>div.card:last").hide().fadeIn(2000);
                     }
                     if (listPresent == "present") {
                         console.log("Adding new row to list.");
-                        $('#prettyTable>tbody:last').append(data).hide().fadeIn(2000);
+                        $('#prettyTable>tbody:last').append(data);
+                        $('#prettyTable>tbody>tr:last').hide().fadeIn(2000);
                     }
                 }
             })
