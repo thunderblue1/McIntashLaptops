@@ -222,6 +222,57 @@
             })
         }
     });
+
+    $(document).on("click", ".remove-from-cart-button", function (e) {
+        e.preventDefault();
+        var myId = $(this).val();
+        myUrl = '/Shop/RemoveFromCart';
+        $.ajax({
+            type: 'POST',
+            data: { 'id': myId },
+            url: myUrl,
+            success: function (data) {
+                if (data == null) {
+                    alert("Data was null!");
+                } else {
+                    $("#row-number-" + myId).replaceWith(data);
+                    $("#row-number-" + myId).hide().fadeIn(1000);
+                }
+            }
+        });
+    });
+
+    $(document).on("click", ".add-one-to-cart-button", function (e) {
+        e.preventDefault();
+        var myId = $(this).val();
+        myUrl = '/Shop/AddOneToCart';
+        $.ajax({
+            type: 'POST',
+            data: { 'id': myId },
+            url: myUrl,
+            success: function (data) {
+                console.log("THIS IS WHAT IS RETURNED:");
+                console.log(data);
+                $("#row-number-" + myId).replaceWith(data);
+                $("#row-number-" + myId).hide().fadeIn(1000);
+            }
+        });
+    });
+
+    $(document).on("click", ".add-to-cart-button", function (e) {
+        e.preventDefault();
+        var myId = $(this).val();
+        myUrl = '/Shop/AddToCart';
+        $.ajax({
+            type: 'POST',
+            data: { 'id': myId },
+            url: myUrl,
+            success: function (data) {
+                alert("The following item is in your cart:" + data);                
+            }
+        });
+    });
+
 });
 
 //Return List or Display partial view

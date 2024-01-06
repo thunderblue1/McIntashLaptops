@@ -1,7 +1,6 @@
-﻿@model McIntashLaptops.Models.LaptopModel
+﻿@model McIntashLaptops.Models.LaptopModelDTO
 
 <tr id="row-number-@Model.Id">
-
     <td>
         @Html.DisplayFor(modelItem => Model.Id)
     </td>
@@ -10,9 +9,6 @@
     </td>
     <td>
         @Html.DisplayFor(modelItem => Model.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.ShortDescription)
     </td>
     <td>
         @Html.DisplayFor(modelItem => Model.Price)
@@ -35,15 +31,20 @@
     <td>
         @Html.DisplayFor(modelItem => Model.OperatingSystem)
     </td>
-
     <td>
-        <a href="/Laptop/ShowOneLaptop/@Model.Id" class="btn btn-primary w-100">Show Details</a>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-warning edit-laptop-button w-100" value="@Model.Id" data-bs-toggle="modal" data-bs-target="#editForm">
-            Edit
+        @Html.DisplayFor(modelItem => Model.ShortDescription)
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger remove-from-cart-button w-100" value="@Model.Id">
+            Remove
         </button>
-        <button type="button" class="btn btn-danger delete-button w-100" value="@Model.Id">
-            Delete
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Quantity)
+    </td>
+    <td>
+        <button type="button" class="btn btn-success add-one-to-cart-button w-100" value="@Model.Id">
+            Add
         </button>
     </td>
 </tr>

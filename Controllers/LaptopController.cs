@@ -83,12 +83,14 @@ namespace McIntashLaptops.Controllers
         public IActionResult SaveEditReturnNewCard(LaptopModel laptop)
         {
             laptopDAO.Update(laptop);
+            laptop.ShortDescription = laptop.Description.Length <= 100 ? laptop.Description : laptop.Description.Substring(0, 100) + "...";
             return PartialView("_laptopCard", laptop);
         }
 
         public IActionResult SaveEditReturnNewRow(LaptopModel laptop)
         {
             laptopDAO.Update(laptop);
+            laptop.ShortDescription = laptop.Description.Length<=100?laptop.Description:laptop.Description.Substring(0, 100)+"...";
             return PartialView("_laptopRow", laptop);
         }
 

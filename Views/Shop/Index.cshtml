@@ -1,4 +1,16 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<LaptopModel>
+
+<div class="container">
+    <div class="row">
+        <h1>Shop for Laptops</h1>
+    </div>
+    <div class="row pt-3">
+        <a href="/Shop/Cart" class="btn btn-success w-50">Shopping Cart</a>
+    </div>
+    <div class="row pt-3">
+        <partial name="_searchForm" />
+    </div>
+    <div class="row pt-3">
+        <partial name="_Display" model=Model />
+    </div>
+</div>

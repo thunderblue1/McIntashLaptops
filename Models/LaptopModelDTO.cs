@@ -1,9 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using System.Runtime.Intrinsics.Arm;
 
 namespace McIntashLaptops.Models
 {
-    public class LaptopModel
+    public class LaptopModelDTO
     {
         [DisplayName("Laptop Id")]
         public int Id { get; set; }
@@ -28,12 +31,29 @@ namespace McIntashLaptops.Models
         public string Weight { get; set; }
         [DisplayName("Operating System")]
         public string OperatingSystem { get; set; }
-
+        [DisplayName("Short Description")]
         public string ShortDescription { get; set; }
+        public int Quantity { get; set; }
 
-        public LaptopModel() { }
+        public LaptopModelDTO() { }
 
-        public LaptopModel(int id, string photo, string name, string description, decimal price, string processor, string ram, string driveSize, string graphicsCard, string weight, string operatingSystem)
+        public LaptopModelDTO(LaptopModel laptop, int quantity) {
+            Id = laptop.Id;
+            Photo = laptop.Photo;
+            Name = laptop.Name;
+            Description = laptop.Description;
+            Price = laptop.Price;
+            Processor = laptop.Processor;
+            Ram = laptop.Ram;
+            DriveSize = laptop.DriveSize;
+            this.GraphicsCard = laptop.GraphicsCard;
+            Weight = laptop.Weight;
+            OperatingSystem = laptop.OperatingSystem;
+            ShortDescription = laptop.Description.Length <= 100 ? laptop.Description : laptop.Description.Substring(0, 100) + "...";
+            Quantity = quantity;
+        }
+
+        public LaptopModelDTO(int id, string photo, string name, string description, decimal price, string processor, string ram, string driveSize, string graphicsCard, string weight, string operatingSystem, int quantity)
         {
             Id = id;
             Photo = photo;
@@ -47,6 +67,7 @@ namespace McIntashLaptops.Models
             Weight = weight;
             OperatingSystem = operatingSystem;
             ShortDescription = description.Length<=100?description:description.Substring(0,100)+"...";
+            Quantity = quantity;
         }
     }
 }

@@ -65,4 +65,9 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 
+using(var scope = app.Services.CreateScope())
+{
+    ShoppingCartService.laptopDAO = scope.ServiceProvider.GetRequiredService<ILaptopDataService>();
+}
+
 app.Run();

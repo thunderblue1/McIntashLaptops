@@ -1,0 +1,22 @@
+﻿@model McIntashLaptops.Models.LaptopModel
+
+<div id="card-number-@Model.Id" class="card" style="width: 18rem; margin: 5px;">
+    <img src="@Model.Photo" class="card-img-top">
+    <div class="card-body" style="width: 18rem;">
+        <h5 class="card-title">@Model.Name</h5>
+
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Id): @Html.DisplayFor(modelItem=>Model.Id)</p>
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Price): @Html.DisplayFor(modelItem=>Model.Price)</p>
+
+
+        <p class="card-text">@Html.DisplayNameFor(model => Model.Description): @Html.DisplayFor(modelItem=>Model.ShortDescription)</p>
+    </div>
+    <div class="card-footer">
+        <div class="row mt-auto no-gutters">
+            <a href="/Laptop/ShowOneLaptop/@Model.Id" class="btn btn-primary w-50">Show Details</a>
+            <button type="button" class="btn btn-success add-to-cart-button w-50" value="@Model.Id">
+                Add to Cart
+            </button>
+        </div>
+    </div>
+</div>

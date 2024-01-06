@@ -1,0 +1,8 @@
+﻿@model IEnumerable<McIntashLaptops.Models.LaptopModel>
+
+<div class="container d-flex flex-wrap" id="carded" data-present="present">
+    @foreach (var item in Model)
+    {
+        <partial name="_laptopCard" model="item" /> 
+    }
+</div>
