@@ -3,6 +3,7 @@ using McIntashLaptops.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using McIntashLaptops.Areas.Identity.Data;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
@@ -16,6 +17,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddTransient<ILaptopDataService, LaptopDAO>();
+builder.Services.AddTransient<ICheckoutService, CheckoutDAO>();
+builder.Services.AddTransient<ISecurity, SecurityService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 // Add services to the container.
@@ -30,6 +33,8 @@ builder.Services.AddSession(options => {
 //Data protection services
 builder.Services.AddDataProtection();
 builder.Services.AddScoped<SecurityService>();
+
+builder.Services.AddScoped<ShoppingCartService>();
 
 //Add Identity
 //builder.Services.AddIdentity<UserModel, IdentityRole>();
@@ -68,6 +73,11 @@ app.MapRazorPages();
 using(var scope = app.Services.CreateScope())
 {
     ShoppingCartService.laptopDAO = scope.ServiceProvider.GetRequiredService<ILaptopDataService>();
+    ShoppingCartService.checkoutDAO = scope.ServiceProvider.GetRequiredService<ICheckoutService>();
 }
+
+//Stripe
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+
 
 app.Run();

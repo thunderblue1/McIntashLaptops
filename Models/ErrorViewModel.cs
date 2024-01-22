@@ -1,4 +1,4 @@
-namespace McIntashLaptops.Models
+namespace McIntashLaptops
 {
     public class ErrorViewModel
     {

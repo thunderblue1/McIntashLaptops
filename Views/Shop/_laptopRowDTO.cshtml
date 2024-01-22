@@ -1,50 +1,53 @@
 ﻿@model McIntashLaptops.Models.LaptopModelDTO
 
-<tr id="row-number-@Model.Id">
-    <td>
-        @Html.DisplayFor(modelItem => Model.Id)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.Photo)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.Processor)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.Ram)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.DriveSize)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.GraphicsCard)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.Weight)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.OperatingSystem)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.ShortDescription)
-    </td>
-    <td>
-        <button type="button" class="btn btn-danger remove-from-cart-button w-100" value="@Model.Id">
-            Remove
-        </button>
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => Model.Quantity)
-    </td>
-    <td>
-        <button type="button" class="btn btn-success add-one-to-cart-button w-100" value="@Model.Id">
-            Add
-        </button>
-    </td>
-</tr>
+@if(Model.Quantity>0)
+{
+    <tr id="row-number-@Model.Id">
+        <td>
+            @Html.DisplayFor(modelItem => Model.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Processor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Ram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.DriveSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.GraphicsCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.OperatingSystem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ShortDescription)
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger remove-from-cart-button w-100" value="@Model.Id">
+                Remove
+            </button>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Quantity)
+        </td>
+        <td>
+            <button type="button" class="btn btn-success add-one-to-cart-button w-100" value="@Model.Id">
+                Add
+            </button>
+        </td>
+    </tr>
+}

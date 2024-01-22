@@ -232,11 +232,16 @@
             data: { 'id': myId },
             url: myUrl,
             success: function (data) {
-                if (data == null) {
-                    alert("Data was null!");
+                if (!$.trim(data)) {
+                    $("#row-number-" + myId).fadeOut(1000);
+                    setTimeout(function () {
+                        $("#row-number-" + myId).remove()
+                    },1000)
+                    updateTotal();
                 } else {
                     $("#row-number-" + myId).replaceWith(data);
                     $("#row-number-" + myId).hide().fadeIn(1000);
+                    updateTotal();
                 }
             }
         });
@@ -251,10 +256,9 @@
             data: { 'id': myId },
             url: myUrl,
             success: function (data) {
-                console.log("THIS IS WHAT IS RETURNED:");
-                console.log(data);
                 $("#row-number-" + myId).replaceWith(data);
                 $("#row-number-" + myId).hide().fadeIn(1000);
+                updateTotal();
             }
         });
     });
@@ -268,7 +272,8 @@
             data: { 'id': myId },
             url: myUrl,
             success: function (data) {
-                alert("The following item is in your cart:" + data);                
+                console.log(data);
+                $("#cart-message").html("The following item was added to your cart: Name:" + data.name + ", Id: " + data.id+", Quantity: "+data.quantity);                
             }
         });
     });
@@ -291,5 +296,17 @@ function getResults(myUrl) {
             $("#mydiv").html('Failed to load more content');
         }
 
+    });
+}
+
+function updateTotal() {
+    myUrl = '/Shop/getTotalJson';
+    $.ajax({
+        type: 'POST',
+        url: myUrl,
+        success: function (data) {
+            console.log(data);
+            $("#calculate-total").html("$" + data);
+        }
     });
 }

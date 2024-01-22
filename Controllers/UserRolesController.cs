@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace McIntashLaptops.Controllers
 {
     [Authorize(Roles ="Manager")]
-    public class UserRoles : Controller
+    public class UserRolesController : Controller
     {
         private RoleManager<IdentityRole> roleManager;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public UserRoles(RoleManager<IdentityRole> _roleManager, UserManager<ApplicationUser> _userManager)
+        public UserRolesController(RoleManager<IdentityRole> _roleManager, UserManager<ApplicationUser> _userManager)
         {
             roleManager = _roleManager;
             userManager = _userManager;

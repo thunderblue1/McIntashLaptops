@@ -1,0 +1,15 @@
+﻿@model McIntashLaptops.Models.LaptopModel
+
+<a href="/Shop/Cart" class="btn btn-success w-50">Shopping Cart</a>
+<h5 class="text-success" id="cart-message"></h5>
+
+<div id="details">
+    <partial name="_details" />
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary w-25">Back to Shop</a>
+    <button type="button" class="btn btn-success add-to-cart-button w-25" value="@Model.Id">
+        Add to Cart
+    </button>
+</div>

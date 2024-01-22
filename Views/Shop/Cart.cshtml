@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<McIntashLaptops.Models.LaptopModelDTO>
+@inject McIntashLaptops.Services.ShoppingCartService shoppingCartService
 
 <div class="container">
     <div class="row">
         <h1>Shopping Cart</h1>
     </div>
     <div class="row pt-3">
-        <a href="/Shop/Checkout" class="btn btn-success w-50">Checkout</a>
+        <button type="button" class="btn btn-success create-laptop-button w-50" style="width:100px" data-bs-toggle="modal" data-bs-target="#checkoutForm">
+            Checkout
+        </button>
     </div>
     <div class="row pt-3">
         <table class="table">
@@ -104,5 +107,31 @@
             </tbody>
         </table>
     </div>
+    <div class="row pt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Price:</td>
+                    <td id="calculate-total">@{
+                            var total = shoppingCartService.getTotal();
+                        }
+                        $@total
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
+@{
+    CheckoutModel check = new CheckoutModel();
+
+}
+
+<partial name="_checkout" model="@check"/>

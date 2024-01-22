@@ -7,42 +7,24 @@ using System.Security.AccessControl;
 
 namespace McIntashLaptops.Services
 {
-    public class SecurityService
+    public class SecurityService: ISecurity
     {
-
-        SecurityDAO securityDAO = new SecurityDAO();
         IDataProtectionProvider dpp;
-        ISession session;
-        public SecurityService(IDataProtectionProvider dpp, IHttpContextAccessor httpContextAccessor)
+
+        public SecurityService(IDataProtectionProvider dpp)
         {
             this.dpp = dpp;
-            this.session = httpContextAccessor.HttpContext.Session;
         }
 
-        public bool IsValid(UserModel user)
+        public string EncryptCard(string data)
         {
-            return securityDAO.FindUserByUsernameAndPassword(user);
+            string encryptedData = "";
+            IDataProtector dataProtector = dpp.CreateProtector("credit_card");
+            if(!string.IsNullOrEmpty(data)) { 
+                encryptedData = dataProtector.Protect(data);
+            }
+            return encryptedData;
+        }
         
-            
-        }
-        public UserModel GetUser(UserModel user)
-        {
-            UserModel gotten = securityDAO.GetUserByUsernameAndPassword(user);
-            return gotten;
-        }
-
-        public bool AlreadyExists(UserModel user)
-        {
-            return false;
-        }
-        public bool AddUser(UserModel user)
-        {
-            var protector = dpp.CreateProtector("user-service");
-            var newPassword = protector.Protect(user.Password);
-            user.Password = newPassword;
-            session.SetString("encrypted",user.Password);
-
-            return true;
-        }
     }
 }
