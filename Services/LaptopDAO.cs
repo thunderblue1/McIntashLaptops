@@ -6,11 +6,15 @@ namespace McIntashLaptops.Services
 {
     public class LaptopDAO : ILaptopDataService
     {
-        string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=McIntash;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //This string is used to establish a connection to a database
+        string connectionString = "Data Source=tcp:johnkeen.database.windows.net,1433;Initial Catalog=McIntash;User Id=AdminGuy@johnkeen;Password=#WorkingHard2";
+        
+        //This is a default constructor
         public LaptopDAO()
         {
         }
 
+        //This is used return all laptop relation records
         public List<LaptopModel> All()
         {
             List<LaptopModel> list = new List<LaptopModel>();
@@ -36,6 +40,7 @@ namespace McIntashLaptops.Services
             return list;
         }
 
+        //This is used to delete a laptop record by LaptopModel (specifically the id)
         public bool Delete(LaptopModel laptop)
         {
             int idNumber = -1;
@@ -62,7 +67,7 @@ namespace McIntashLaptops.Services
                 return false;
             }
         }
-
+        //This will return a laptop record for a laptop with a particular id
         public LaptopModel GetLaptopById(int id)
         {
             LaptopModel laptop = new LaptopModel();
@@ -90,7 +95,7 @@ namespace McIntashLaptops.Services
 
             return laptop;
         }
-
+        //Insert a laptop record into database using LaptopModel
         public int Insert(LaptopModel laptop)
         {
             int newIdNumber = -1;
@@ -121,10 +126,11 @@ namespace McIntashLaptops.Services
             return newIdNumber;
         }
 
+        //This is used to return a laptop record containing a search term in one of it's fields
         public List<LaptopModel> SearchLaptops(string searchTerm)
         {
             List<LaptopModel> list = new List<LaptopModel>();
-            string sqlStatement = "select * from dbo.laptop where name like @searchTerm or description like @searchTerm or id like @searchTerm";
+            string sqlStatement = "select * from dbo.laptop where name like @searchTerm or description like @searchTerm or id like @searchTerm or photo like @searchTerm or price like @searchTerm or processor like @searchTerm or ram like @searchTerm or drive_size like @searchTerm or graphics_card like @searchTerm or weight like @searchTerm or operating_system like @searchTerm";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -148,7 +154,7 @@ namespace McIntashLaptops.Services
 
             return list;
         }
-
+        //This is used to update a laptop record using a LaptopModel
         public int Update(LaptopModel laptop)
         {
             int newIdNumber = -1;

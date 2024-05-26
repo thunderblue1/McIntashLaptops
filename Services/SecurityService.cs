@@ -16,6 +16,7 @@ namespace McIntashLaptops.Services
             this.dpp = dpp;
         }
 
+        //This is for encrypting information if required
         public string EncryptCard(string data)
         {
             string encryptedData = "";

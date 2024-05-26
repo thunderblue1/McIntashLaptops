@@ -8,11 +8,13 @@ namespace McIntashLaptops.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        //Constructor with dependency injection for logger
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        //View shown upon arrival and logging out
         public IActionResult Index()
         {
             ViewBag.Title = "Home";
@@ -20,11 +22,13 @@ namespace McIntashLaptops.Controllers
             return View();
         }
 
+        //Shows the expectaions regarding privacy of the web application
         public IActionResult Privacy()
         {
             return View();
         }
 
+        //Displays an error page in the event of an error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

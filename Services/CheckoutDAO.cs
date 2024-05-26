@@ -1,5 +1,6 @@
 ﻿using Humanizer;
 using McIntashLaptops.Models;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Data.SqlClient;
 using Stripe;
 
@@ -7,24 +8,29 @@ namespace McIntashLaptops.Services
 {
     public class CheckoutDAO : ICheckoutService
     {
-        string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=McIntash;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //This is used to establish a connection to a database
+        string connectionString = "Data Source=tcp:johnkeen.database.windows.net,1433;Initial Catalog=McIntash;User Id=AdminGuy@johnkeen;Password=#WorkingHard2";
 
         ISecurity securityService;
+
+        //This is used to inject the securityService if it is needed
         public CheckoutDAO(ISecurity securityService)
         {
             this.securityService = securityService;
         }
-
+        //This will be used to return all orders relation records in the database
         public List<OrderModel> AllOrders()
         {
             throw new NotImplementedException();
         }
 
+        //This will be used to return all purchase records in the database
         public List<PurchaseModel> AllPurchases()
         {
             throw new NotImplementedException();
         }
 
+        //This is used to fulfill orders after the Stripe Payment Intent succeeds
         public void Checkout(CheckoutModel model, List<LaptopModelDTO> bought, decimal total, string email, string id, string paymentintentid)
         {
             int purchaseNumber = InsertPurchase(model,total,email,id,paymentintentid);
@@ -34,37 +40,43 @@ namespace McIntashLaptops.Services
                 InsertOrder(purchaseNumber, item.Id, item.Quantity, "unfilled");
             }
         }
-
+        //This will be used for deleting an order
         public bool DeleteOrder(OrderModel model)
         {
             throw new NotImplementedException();
         }
 
+        //This will be used for finding orders with a field that matches or contains a search term
         public List<OrderModel> FindOrdersAsList(string searchTerm)
         {
             throw new NotImplementedException();
         }
 
+        //This will be used for finding purchases with a field that matches or contains a search term
         public List<PurchaseModel> FindPurchasesAsList(string searchTerm)
         {
             throw new NotImplementedException();
         }
 
+        //This will be used to get an order by the id
         public OrderModel GetOrderById(int id)
         {
             throw new NotImplementedException();
         }
 
+        //This will be used to return all orders records with a partiular purchase number
         public List<OrderModel> GetOrdersByPurchaseNumber(int id)
         {
             throw new NotImplementedException();
         }
 
+        //This will be used to get a purchase by id
         public List<PurchaseModel> GetPurchaseById(int purchaseId)
         {
             throw new NotImplementedException();
         }
 
+        //This is used to insert an order record into the database
         public int InsertOrder(int purchaseNumber, int itemNumber, int quantity, string orderState)
         {
             int orderNumber = -1;
@@ -90,7 +102,7 @@ namespace McIntashLaptops.Services
             }
             return orderNumber;
         }
-
+        //This is used to insert a purchase into the database
         public int InsertPurchase(CheckoutModel model, decimal total, string email, string id, string paymentintentid)
         {
             int purchaseNumber = -1;
@@ -122,11 +134,7 @@ namespace McIntashLaptops.Services
             return purchaseNumber;
         }
 
-        public List<OrderModel> SearchOrders(string searchTerm)
-        {
-            throw new NotImplementedException();
-        }
-
+        //This will be used to update an order
         public int UpdateOrder(OrderModel model)
         {
             throw new NotImplementedException();

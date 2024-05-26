@@ -26,6 +26,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
     }
+
+    //This is used to configure the database for ApplicationUser
     public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)

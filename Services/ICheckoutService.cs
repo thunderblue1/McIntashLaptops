@@ -8,7 +8,6 @@ namespace McIntashLaptops.Services
         List<PurchaseModel> GetPurchaseById(int purchaseId);
         List<PurchaseModel> FindPurchasesAsList(string searchTerm);
         List<OrderModel> AllOrders();
-        List<OrderModel> SearchOrders(string searchTerm);
         OrderModel GetOrderById(int id);
         List<OrderModel> GetOrdersByPurchaseNumber(int id);
         List<OrderModel> FindOrdersAsList(string searchTerm);

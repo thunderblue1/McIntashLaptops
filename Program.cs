@@ -33,7 +33,6 @@ builder.Services.AddSession(options => {
 //Data protection services
 builder.Services.AddDataProtection();
 builder.Services.AddScoped<SecurityService>();
-
 builder.Services.AddScoped<ShoppingCartService>();
 
 //Add Identity
