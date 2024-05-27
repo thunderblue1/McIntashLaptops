@@ -16,7 +16,7 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 ### Project Overview
 ### Project Design
 ### Coding References
-### Project Artifacts and Implementation Details
+### Project Implementation Details
 ### How to Run this Project
 
 ---
@@ -78,7 +78,52 @@ John Keen made this as a senior project with the knowledge and experience he gai
 
 ### User Stories
 
+List of requirements
 
+- As a user, I would like to be able to register a new account so that I can login.
+- As a user, I would to be able to login so that I can access the features of the website.
+- As a user, I would like to be able to logout so that I can protect data that may be vital to me or my company.
+- As a Laptop Manger, I would like to be able to switch between a table view and a card view so that I can easily find what I am looking for and ensure that the information and image for the laptop is correct.
+- As a Laptop Manager, I would like to be able to search for laptops so that I can quickly find a laptop that needs to be edited or deleted.
+- As a Laptop Manger, I would like to be able to click a button that loads a create form so that I can create a laptop entry in the catalog.
+- As a Laptop Manager, I would like to be able to click a button that loads an edit form so that I can quickly edit a laptop entry.
+- As a Laptop Manager, I would like to be able to click a delete button so that I can delete a laptop entry.
+- As a Laptop Manager, I would like to be able to click a details button so that I can navigate to a page with the full details and full description for a laptop entry.
+- As a Laptop Manager, I would like to be able to see the same search results while switching between table and card view so that I can readily find the information I am looking for.
+- As a Manager, I would like to be able to register a new user so that I can get an employee started.
+- As a Manager, I would like to be able to create or delete user roles so that I can add roles for new pages that require authorization for a particular role or remove roles that were only needed for pages that have been removed from the web application. 
+- As a Manager, I would like to be able to assign or unassign roles for a user so that I can manage who has access to particular features of the site.
+- As a Manager, I would like to be able to search for users so that I can quickly find a particular user.
+- As a retailer, I would like to be able to consume a REST API so that I can display the manufacturers data on my website.
+- As a Customer, I would like to be able search for a particular laptop so that I can find a laptop of interest.
+- As a Customer, I would like to be able to click a button that navigates to a full details page of a laptop entry so that I can learn more about a particular laptop.
+- As a Customer, I would like to be able to add an item to the cart from the products page so that I can add more than one item to the cart.
+- As a Customer, I would like to see the items in my cart so that I can know what I am purchasing.
+- As a Customer, I would like to be able to add or remove items in the cart so that I can manage what I am purchasing without having to navigate to a previous page.
+- As a Customer, I would like to be able to checkout so that I can complete my order
+
+### Database Design
+
+
+### REST API
+
+##### Route: GET /api/
+##### DAO method: +Index(): IEnumerable\<LaptopModel\>
+##### Purpose: Return all products from database
+
+![AllLaptops](<./Project Documents/RESTAPI-Index.jpg>)
+
+##### Route: GET /api/searchresults/:searchTerm
+##### DAO method: +Index(): IEnumerable\<LaptopModel\>
+##### Purpose: Return products with fields matching the search term
+
+![SearchLaptops](<./Project Documents/SearchResults.jpg>)
+
+##### Route: GET /api/showonelaptop/:Id
+##### DAO method: +Index(): LaptopModel
+##### Purpose: Return a product with a matching id
+
+![ShowOneLaptop](<./Project Documents/ShowOneLaptop.jpg>)
 
 ---
 # Coding References
@@ -91,6 +136,6 @@ John Keen made this as a senior project with the knowledge and experience he gai
 ---
 # How to Run this Project
 
-![](./.jpg)
+![](<./.jpg>)
 
 ---
