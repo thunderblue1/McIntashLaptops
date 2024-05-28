@@ -371,6 +371,15 @@ https://mcintash.azurewebsites.net/webhook
 6. Click the checkbox next to "payment_intent.succeeded"
 7. Click "Add events"
 8. Click "Add endpoint"
+9. Click on "Signing secret"
+10. Select the text under "Signing secret" and press CTRL+C
+11. Use the Solution Explorer to navigate to "Controllers/ShopController.cs"
+12. At the bottom of the page is a string called WEBHOOK_SECRET
+13. Replace the text in the WEBHOOK_SECRET string by selecting the text and pressing CTRL+V.  Example:
+const string WEBHOOK_SECRET = "whsec_llFNP0oIe4DY45dEyixnM0KwJTWZW0dS";
+14. Click the "Save All" button that looks like two floppy disks at the top left of Microsoft Visual Studio
+15. Right click the project and click "Publish" then proceed with the normal Publishing of the project
+- or click Git>Commit, enter a commit message and click "Commit All" then click Git>Push if you used CI/CD for your project. 
 
 The webhook should be successfully setup and Stripe will send payment intent success events to your webhook.
 

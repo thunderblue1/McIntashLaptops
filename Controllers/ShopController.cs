@@ -154,7 +154,7 @@ namespace McIntashLaptops.Controllers
         public async Task<ActionResult> WebhookHandler()
         {
             System.Diagnostics.Debug.WriteLine("### I Am In WebhookHandler()");
-            const string WEBHOOK_SECRET = "whsec_llFNP0oIe4DY45dEyixnM0KwJTWZW0dS";
+            const string WEBHOOK_SECRET = "whsec_lftUiAR7QbeTDIInzc7j4LSKSOyyzyD3";
             var payload = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
 
             try
