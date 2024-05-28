@@ -13,10 +13,12 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 
 ## Contents
 
-### Project Overview
+
 [link](#Project-Overview)
+
 - What is the McIntash Laptops Project?
 - Who made this?
+
 ### Project Design
 - Site Map
 - Wireframes
