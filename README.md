@@ -13,7 +13,6 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 
 ## Contents
 
-### Project Overview
 [Project Overview](#Project-Overview)
 - What is the McIntash Laptops Project?
 - Who made this?
