@@ -362,7 +362,17 @@ If you see data then Stripe successfully sent a "payment intent succeeded" event
 
 ##### Setting up a webhook for the application hosted in the cloud
 
+1. Login to Stripe
+2. Search for "webhook" and click on "Developers>Webhooks"
+3. Click "Add endpoint" and then enter your domain name followed by /webhook.  Example:
+https://mcintash.azurewebsites.net/webhook
+4. Click "select events"
+5. Search for "payment intent succeeded"
+6. Click the checkbox next to "payment_intent.succeeded"
+7. Click "Add events"
+8. Click "Add endpoint"
 
+The webhook should be successfully setup and Stripe will send payment intent success events to your webhook.
 
 [Back to Table of Contents](#Table-of-Contents)
 
