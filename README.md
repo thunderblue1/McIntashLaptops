@@ -14,7 +14,18 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 ## Contents
 
 ### Project Overview
+- What is the McIntash Laptops Project?
+- Who made this?
 ### Project Design
+- Site Map
+- Wireframes
+- Security Matrix
+- Top Down System Design
+- Use Case
+- User Stories
+- Database Design
+- Rest API
+### Project UML
 ### Coding References
 ### Project Implementation Details
 ### How to Run this Project
@@ -36,8 +47,6 @@ John Keen made this as a senior project with the knowledge and experience he gai
 
 ---
 # Project Design
-
-
 
 ### Site Map
 
@@ -104,6 +113,12 @@ List of requirements
 
 ### Database Design
 
+The McIntash Laptops web application connects to the database in two ways.
+The first way is that it leverages Microsofts SqlClient in the DAO.
+The second way is that it uses the Entity Framework while connecting to the database for the Identity framework.
+
+![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
+![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
 
 ### REST API
 
@@ -111,21 +126,32 @@ List of requirements
 ##### DAO method: +Index(): IEnumerable\<LaptopModel\>
 ##### Purpose: Return all products from database
 
-![AllLaptops](<./Project Documents/RESTAPI-Index.jpg>)
+![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
 
 ##### Route: GET /api/searchresults/:searchTerm
 ##### DAO method: +Index(): IEnumerable\<LaptopModel\>
 ##### Purpose: Return products with fields matching the search term
 
-![SearchLaptops](<./Project Documents/SearchResults.jpg>)
+![SearchLaptops](<./Project Documents/images/SearchResults.jpg>)
 
 ##### Route: GET /api/showonelaptop/:Id
 ##### DAO method: +Index(): LaptopModel
 ##### Purpose: Return a product with a matching id
 
-![ShowOneLaptop](<./Project Documents/ShowOneLaptop.jpg>)
+![ShowOneLaptop](<./Project Documents/images/ShowOneLaptop.jpg>)
 
 ---
+### Project UML
+
+![](<./Project Documents/images/UML1.jpg>)
+![](<./Project Documents/images/UML2.jpg>)
+![](<./Project Documents/images/UML3.jpg>)
+![](<./Project Documents/images/UML4.jpg>)
+
+
+
+---
+
 # Coding References
 
 
