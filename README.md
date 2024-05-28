@@ -14,6 +14,7 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 ## Contents
 
 ### Project Overview
+[link](#Project-Overview)
 - What is the McIntash Laptops Project?
 - Who made this?
 ### Project Design
@@ -29,6 +30,7 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 ### Coding References
 ### Project Implementation Details
 ### How to Run this Project
+[link](#How-to-Run-this-Project)
 
 ---
 
