@@ -183,8 +183,7 @@ The first way is that it leverages Microsofts SqlClient in the DAO.
 The second way is that it uses the Entity Framework while connecting to the database for the Identity framework.
 If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recreate the database using the publish feature.
 
-![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
-![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
+![AllLaptops](<./Project Documents/images/ERDiagram.jpg>)
 
 [Back to Table of Contents](#Table-of-Contents)
 
@@ -200,23 +199,23 @@ If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recr
 ##### DAO method: +Index(): IEnumerable\<LaptopModel\>
 ##### Purpose: Return products with fields matching the search term
 
-![SearchLaptops](<./Project Documents/images/SearchResults.jpg>)
+![SearchLaptops](<./Project Documents/images/RESTAPI-SearchResults.jpg>)
 
 ##### Route: GET /api/showonelaptop/:Id
 ##### DAO method: +Index(): LaptopModel
 ##### Purpose: Return a product with a matching id
 
-![ShowOneLaptop](<./Project Documents/images/ShowOneLaptop.jpg>)
+![ShowOneLaptop](<./Project Documents/images/RESTAPI-ShowOneLaptop.jpg>)
 
 [Back to Table of Contents](#Table-of-Contents)
 
 ---
 ### Project UML
 
-![](<./Project Documents/images/UML1.jpg>)
-![](<./Project Documents/images/UML2.jpg>)
-![](<./Project Documents/images/UML3.jpg>)
-![](<./Project Documents/images/UML4.jpg>)
+![ApplicationUser](<./Project Documents/images/UML1.jpg>)
+![ModelsUML](<./Project Documents/images/UML2.jpg>)
+![ServicesUML](<./Project Documents/images/UML3.jpg>)
+![ControllersUML](<./Project Documents/images/UML4.jpg>)
 
 [Back to Table of Contents](#Table-of-Contents)
 
