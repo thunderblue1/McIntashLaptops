@@ -5,13 +5,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using RestSharp.Extensions;
 using Stripe;
 using Stripe.Checkout;
 using System.Drawing.Text;
 using System.Security.Claims;
 using System.Security.Policy;
-
+using System.Text.RegularExpressions;
 
 namespace McIntashLaptops.Controllers
 {
@@ -165,14 +164,11 @@ namespace McIntashLaptops.Controllers
                   Request.Headers["Stripe-Signature"],
                   WEBHOOK_SECRET
                 );
-                if(stripeEvent.Type == Events.PaymentIntentCreated)
+                if(stripeEvent.Type == Events.PaymentIntentSucceeded)
                 {
                     var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
                     System.Diagnostics.Debug.WriteLine("### PAYMENT INTENT:"+paymentIntent.Id);
-                    if (paymentIntent.Status.Matches("succeeded"))
-                    {
-                        shoppingCartService.checkout(paymentIntent.Id);
-                    }
+                    shoppingCartService.checkout(paymentIntent.Id);
                 }
 
                 return Ok();

@@ -4,6 +4,9 @@ McIntash Laptops is a ficticious computer manufacturer that wishes to provide pr
 Their need for a web application to Create, Read, Update and Delete products as well as their need to make the product information available by way of REST API is met by the implementation of this project.
 McIntash Laptops also sells products in the "Shop" section of this web application and payments are processed by Stripe.
 
+At the time of the creation of this Web Application it was hosted at the following address:
+https://mcintash.azurewebsites.net
+
 ---
 # Metadata
 
@@ -46,6 +49,11 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 McIntash laptops is a product catalog and simple e-commerce website.  It allows laptop managers to login and utilize CRUD functionality.
 Anyone who registers as a user can use the "Shop" portion of the site and payments are processed by means of Stripe.
 Product information is available to retailers by means of REST API endpoints.
+A user with the Manager role can add the LaptopManager role to an existing user so that they can leverage the CRUD functionality of the site.
+Once a role is added to a user, the user must log out and then back in to access the CRUD functionality of the site.
+The web application is built on ASP.NET MVC.  It uses the Identity Framework in order to manage access to certain controllers using roles.
+It uses jQuery to asynchronously call actions and update content on the page such as cards or table rows.
+Stripe is used to process payments and a purchase (the total bill) and orders (laptops purchased) are saved upon a successful Stripe payment.
 
 ### Who made this?
 
@@ -134,17 +142,27 @@ John Keen made this as a senior project with the knowledge and experience he gai
 
 ### Security Matrix
 
+The following matrix demonstrates that users with the Manager role can create roles and assign roles to users.
+A user with the LaptopManager role has access to CRUD functionality.
+A user without a role can only make purchases in the Shop section of the Web Application.
+Only allowing a user the privileges they need in order to do their job is the principle of least privilege.
+This concept is illustrated in the following security matrix:
+
 ![SecurityMatrix](<./Project Documents/images/SecurityMatrix.jpg>)
 
 [Back to Table of Contents](#Table-of-Contents)
 
 ### Top Down System Design
 
+The following shows how the Web Application was designed to allow the user to access certain functionality while performing the expected tasks associated with each role.
+
 ![TopDownDesign](<./Project Documents/images/TopDown.jpg>)
 
 [Back to Table of Contents](#Table-of-Contents)
 
 ### Use Case
+
+The following shows how each user is expected to use the application based on their assigned role.
 
 ![UseCase](<./Project Documents/images/UseCase.jpg>)
 
@@ -181,7 +199,7 @@ List of functional requirements
 ### Database Design
 
 The McIntash Laptops web application connects to the database in two ways.
-The first way is that it leverages Microsofts SqlClient in the DAO.
+The first way is that it leverages Microsofts SqlClient in the DAOs.
 The second way is that it uses the Entity Framework while connecting to the database for the Identity framework.
 If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recreate the database using the publish feature.
 
@@ -190,6 +208,13 @@ If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recr
 [Back to Table of Contents](#Table-of-Contents)
 
 ### REST API
+
+The REST API intentionally has only three endpoints.  None of the endpoints can Create, Update or Delete products.
+This is because retailers are not expected to Create, Update or Delete products and not having endpoints for this functionality helps ensure the integrity of the data in the database.
+All of the endpoints return the data in JSON format.
+The first endpoint is designed to return all of the products in the database.
+The second endpoint is designed to return all products that match a search term in one of the products fields.
+The third endpoint can be used to access a single product by the id of the product.
 
 ##### Route: GET /api/
 ##### DAO method: +Index(): IEnumerable\<LaptopModel\>
@@ -215,8 +240,17 @@ If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recr
 ### Project UML
 
 ![ApplicationUser](<./Project Documents/images/UML1.jpg>)
+
+[Back to Table of Contents](#Table-of-Contents)
+
 ![ModelsUML](<./Project Documents/images/UML2.jpg>)
+
+[Back to Table of Contents](#Table-of-Contents)
+
 ![ServicesUML](<./Project Documents/images/UML3.jpg>)
+
+[Back to Table of Contents](#Table-of-Contents)
+
 ![ControllersUML](<./Project Documents/images/UML4.jpg>)
 
 [Back to Table of Contents](#Table-of-Contents)
@@ -313,6 +347,7 @@ const string WEBHOOK_SECRET = "whsec_bf0af38039a01b66cd8f2babf3a7b79fddd571830ac
 10. Click "Save All" button that looks like two floppy disks
 11. If the command prompt is still open then Stripe is forwarding events to the webhook of your application
 - Run the application, add items to the cart and then checkout
+- Use card: 4242 4242 4242 4242 for payment success
 12. Right click on the database "McIntash" and select "New Query ..."
 13. Insert the following code into the new query box and click the empty green arrow just under the query tab:
 
@@ -322,11 +357,10 @@ on purchase.PurchaseNumber=orders.PurchaseNumber
 where 1=1;
 
 This should show the orders with the purchase information such as the payment intent, user name and purchase date.
-If you see data then Stripe successfully sent a "payment intent created" event to the web application.
+If you see data then Stripe successfully sent a "payment intent succeeded" event to the web application.
 
 
 ##### Setting up a webhook for the application hosted in the cloud
-
 
 
 
