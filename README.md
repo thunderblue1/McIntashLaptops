@@ -19,7 +19,7 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 - Who made this?
 
 [Project Design](#Project-Design)
-- [What is the McIntash Laptops Project?](#What-is-the-McIntash-Laptops-Project?)
+- Site Map
 - Wireframes
 - Security Matrix
 - Top Down System Design
@@ -27,10 +27,13 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 - User Stories
 - Database Design
 - Rest API
-### Project UML
-### Coding References
-### Project Implementation Details
-### How to Run this Project
+
+[Project UML](#Project-UML)
+
+[Coding References](#Coding-References)
+
+[Project Implementation Details](#Project-Implementation-Details)
+
 [How to Run this Web Application](#How-to-Run-this-Web-Application)
 
 ---
