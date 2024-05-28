@@ -25,6 +25,10 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 - Use Case
 - User Stories
 - Database Design
+- [Database Design](#Database-Design)
+
+[Database Design](#Database-Design)
+
 - Rest API
 
 [Project UML](#Project-UML)
@@ -49,7 +53,7 @@ Product information is available to retailers by means of REST API endpoints.
 
 John Keen made this as a senior project with the knowledge and experience he gained from his Grand Canyon University education.
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ---
 # Project Design
@@ -58,47 +62,63 @@ John Keen made this as a senior project with the knowledge and experience he gai
 
 ![SiteMap](<./Project Documents/images/SiteMap.jpg>)
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ### Wireframes
 
 ![UI1](<./Project Documents/images/UI1.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI2](<./Project Documents/images/UI2.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI3](<./Project Documents/images/UI3.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI4](<./Project Documents/images/UI4.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI5](<./Project Documents/images/UI5.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI6](<./Project Documents/images/UI6.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI7](<./Project Documents/images/UI7.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI8](<./Project Documents/images/UI8.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI9](<./Project Documents/images/UI9.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI10](<./Project Documents/images/UI10.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI11](<./Project Documents/images/UI11.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI12](<./Project Documents/images/UI12.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI13](<./Project Documents/images/UI13.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI14](<./Project Documents/images/UI14.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI15](<./Project Documents/images/UI15.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI16](<./Project Documents/images/UI16.jpg>)
+[Back to Table of Contents](#Table-of-Contents)
 ![UI17](<./Project Documents/images/UI17.jpg>)
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ### Security Matrix
 
 ![SecurityMatrix](<./Project Documents/images/SecurityMatrix.jpg>)
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ### Top Down System Design
 
 ![TopDownDesign](<./Project Documents/images/TopDown.jpg>)
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ### Use Case
 
 ![UseCase](<./Project Documents/images/UseCase.jpg>)
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ### User Stories
 
@@ -126,7 +146,7 @@ List of requirements
 - As a Customer, I would like to be able to add or remove items in the cart so that I can manage what I am purchasing without having to navigate to a previous page.
 - As a Customer, I would like to be able to checkout so that I can complete my order
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ### Database Design
 
@@ -138,7 +158,7 @@ If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recr
 ![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
 ![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ### REST API
 
@@ -160,7 +180,7 @@ If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recr
 
 ![ShowOneLaptop](<./Project Documents/images/ShowOneLaptop.jpg>)
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ---
 ### Project UML
@@ -170,24 +190,24 @@ If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recr
 ![](<./Project Documents/images/UML3.jpg>)
 ![](<./Project Documents/images/UML4.jpg>)
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ---
 
 # Coding References
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ---
 # Implementation Details
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ---
 # How to Run this Web Application
 
 TEST
 
-[Table of Contents](#Table-of-Contents)
+[Back to Table of Contents](#Table-of-Contents)
 
 ---
