@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using RestSharp.Extensions;
 using Stripe;
 using Stripe.Checkout;
 using System.Drawing.Text;
@@ -168,7 +169,10 @@ namespace McIntashLaptops.Controllers
                 {
                     var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
                     System.Diagnostics.Debug.WriteLine("### PAYMENT INTENT:"+paymentIntent.Id);
-                    shoppingCartService.checkout(paymentIntent.Id);
+                    if (paymentIntent.Status.Matches("succeeded"))
+                    {
+                        shoppingCartService.checkout(paymentIntent.Id);
+                    }
                 }
 
                 return Ok();

@@ -35,6 +35,8 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 
 [How to Run this Web Application](#How-to-Run-this-Web-Application)
 
+[Setup Stripe for this Web Application](#Setup-Stripe-for-this-Web-Application)
+
 ---
 
 # Project Overview
@@ -150,7 +152,7 @@ John Keen made this as a senior project with the knowledge and experience he gai
 
 ### User Stories
 
-List of requirements
+List of functional requirements
 
 - As a user, I would like to be able to register a new account so that I can login.
 - As a user, I would to be able to login so that I can access the features of the website.
@@ -271,7 +273,60 @@ For setting up Stripe to process purchases then please see the following section
 
 --- 
 
-##### Setup Stripe
+# Setup Stripe for this Web Application
+
+1. Create a Stripe account, login and ensure you are in "Test mode"
+2. Click in search and type "API Keys"
+3. Select Developers>API Keys
+4. Click the publishable key to copy it
+5. Use the Solution Explorer to navigate to "appsettings.json"
+6. Replace the text in double quotes after "PublishableKey": with your publishable key
+7. Go back to stripe and click "reveal test key" and then continue.
+8. Click to copy the "Secret key" and then go back to "appsettings.json"
+9. Replace the text in double quotes after "SecretKey": with your secret key
+10. Click the "Save All" button that looks like two floppy disks in the top left corner of Microsoft Visual Studio
+
+Now you need to setup the webhook
+
+##### What is a webhook?
+
+Once Stripe accepts a payment, my application has no way of knowing whether or not a payment has been successfully processed.
+What if I wanted to create an order to ship the product to the customer only after a payment was successfully processed?
+For this reason, Stripe offers webhooks that allow us to hook into the state of payments in their application.
+When an event in Stripe occurs, such as a payment successfully processes, Stripe will send the event to an endpoint in the web application.
+My application catches the event and checks if a payment was processed correctly then fulfills the order.
+
+
+##### Setting up the webhook for the application on a local machine
+
+1. Download and install Stripe CLI: https://docs.stripe.com/stripe-cli
+2. Login to Stripe CLI in a command prompt or terminal:
+stripe login
+3. Issue the following command, in a command prompt or terminal, with the correct port number for your Web Application:
+stripe listen --forward-to https://localhost:7085/webhook
+4. Copy your signing secret that looks like the following:
+whsec_bf0af38039a01b66cd8f2babf3a7b79fddd571830ac16bcccb9a855bbb8a1ef6
+5. Use the Solution Explorer in Microsoft Visual Studio to navigate to "Controllers/ShopController.cs"
+8. At the bottom of the file is the "/webhook" endpoint
+9. Replace the string being assigned to WEBHOOK_SECRET with your webhook secret.  Example:
+const string WEBHOOK_SECRET = "whsec_bf0af38039a01b66cd8f2babf3a7b79fddd571830ac16bcccb9a855bbb8a1ef6";
+10. Click "Save All" button that looks like two floppy disks
+11. If the command prompt is still open then Stripe is forwarding events to the webhook of your application
+- Run the application, add items to the cart and then checkout
+12. Right click on the database "McIntash" and select "New Query ..."
+13. Insert the following code into the new query box and click the empty green arrow just under the query tab:
+
+select * from purchase
+join orders
+on purchase.PurchaseNumber=orders.PurchaseNumber
+where 1=1;
+
+This should show the orders with the purchase information such as the payment intent, user name and purchase date.
+If you see data then Stripe successfully sent a "payment intent created" event to the web application.
+
+
+##### Setting up a webhook for the application hosted in the cloud
+
 
 
 
