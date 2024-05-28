@@ -14,7 +14,7 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 ## Contents
 
 ### Project Overview
-### [Project Overview](#Project-Overview)
+[Project Overview](#Project-Overview)
 - What is the McIntash Laptops Project?
 - Who made this?
 ### Project Design
@@ -30,7 +30,7 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 ### Coding References
 ### Project Implementation Details
 ### How to Run this Project
-[link](#How-to-Run-this)
+[How to Run this Web Application](#How-to-Run-this-Web-Application)
 
 ---
 
@@ -162,7 +162,9 @@ The second way is that it uses the Entity Framework while connecting to the data
 
 
 ---
-# How to Run this Project
+# How to Run this Web Application
+
+TEST
 
 ![](<./.jpg>)
 
