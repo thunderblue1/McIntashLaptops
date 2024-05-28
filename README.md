@@ -19,7 +19,7 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 - Who made this?
 
 [Project Design](#Project-Design)
-- [What is the McIntash Laptops Project?](##What-is-the-McIntash-Laptops-Project?)
+- [What is the McIntash Laptops Project?](#What-is-the-McIntash-Laptops-Project?)
 - Wireframes
 - Security Matrix
 - Top Down System Design
