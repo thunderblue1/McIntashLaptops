@@ -11,7 +11,7 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 ### Application Name: McIntashLaptops
 ### Project Github Location: https://github.com/thunderblue1/McIntashLaptops.git
 
-## Contents
+## Table of Contents
 
 [Project Overview](#Project-Overview)
 - What is the McIntash Laptops Project?
@@ -49,6 +49,7 @@ Product information is available to retailers by means of REST API endpoints.
 
 John Keen made this as a senior project with the knowledge and experience he gained from his Grand Canyon University education.
 
+[Table of Contents](#Table-of-Contents)
 
 ---
 # Project Design
@@ -56,6 +57,8 @@ John Keen made this as a senior project with the knowledge and experience he gai
 ### Site Map
 
 ![SiteMap](<./Project Documents/images/SiteMap.jpg>)
+
+[Table of Contents](#Table-of-Contents)
 
 ### Wireframes
 
@@ -77,18 +80,25 @@ John Keen made this as a senior project with the knowledge and experience he gai
 ![UI16](<./Project Documents/images/UI16.jpg>)
 ![UI17](<./Project Documents/images/UI17.jpg>)
 
+[Table of Contents](#Table-of-Contents)
 
 ### Security Matrix
 
 ![SecurityMatrix](<./Project Documents/images/SecurityMatrix.jpg>)
 
+[Table of Contents](#Table-of-Contents)
+
 ### Top Down System Design
 
 ![TopDownDesign](<./Project Documents/images/TopDown.jpg>)
 
+[Table of Contents](#Table-of-Contents)
+
 ### Use Case
 
 ![UseCase](<./Project Documents/images/UseCase.jpg>)
+
+[Table of Contents](#Table-of-Contents)
 
 ### User Stories
 
@@ -116,14 +126,19 @@ List of requirements
 - As a Customer, I would like to be able to add or remove items in the cart so that I can manage what I am purchasing without having to navigate to a previous page.
 - As a Customer, I would like to be able to checkout so that I can complete my order
 
+[Table of Contents](#Table-of-Contents)
+
 ### Database Design
 
 The McIntash Laptops web application connects to the database in two ways.
 The first way is that it leverages Microsofts SqlClient in the DAO.
 The second way is that it uses the Entity Framework while connecting to the database for the Identity framework.
+If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recreate the database using the publish feature.
 
 ![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
 ![AllLaptops](<./Project Documents/images/RESTAPI-Index.jpg>)
+
+[Table of Contents](#Table-of-Contents)
 
 ### REST API
 
@@ -145,6 +160,8 @@ The second way is that it uses the Entity Framework while connecting to the data
 
 ![ShowOneLaptop](<./Project Documents/images/ShowOneLaptop.jpg>)
 
+[Table of Contents](#Table-of-Contents)
+
 ---
 ### Project UML
 
@@ -153,22 +170,24 @@ The second way is that it uses the Entity Framework while connecting to the data
 ![](<./Project Documents/images/UML3.jpg>)
 ![](<./Project Documents/images/UML4.jpg>)
 
-
+[Table of Contents](#Table-of-Contents)
 
 ---
 
 # Coding References
 
+[Table of Contents](#Table-of-Contents)
 
 ---
 # Implementation Details
 
+[Table of Contents](#Table-of-Contents)
 
 ---
 # How to Run this Web Application
 
 TEST
 
-![](<./.jpg>)
+[Table of Contents](#Table-of-Contents)
 
 ---
