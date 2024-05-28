@@ -14,22 +14,18 @@ McIntash Laptops also sells products in the "Shop" section of this web applicati
 ## Table of Contents
 
 [Project Overview](#Project-Overview)
-- What is the McIntash Laptops Project?
-- Who made this?
+- [What is the McIntash Laptops Project?](#What-is-the-McIntash-Laptops-Project?)
+- [Who made this?](#Who-made-this?)
 
 [Project Design](#Project-Design)
-- Site Map
-- Wireframes
-- Security Matrix
-- Top Down System Design
-- Use Case
-- User Stories
-- Database Design
+- [Site Map](#Site-Map)
+- [Wireframes](#Wireframes)
+- [Security Matrix](#Security-Matrix)
+- [Top Down System Design](#Top-Down-System-Design)
+- [Use Case](#Use-Case)
+- [User Stories](#User-Stories)
 - [Database Design](#Database-Design)
-
-[Database Design](#Database-Design)
-
-- Rest API
+- [Rest API](#Rest-API)
 
 [Project UML](#Project-UML)
 
