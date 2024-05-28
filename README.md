@@ -233,7 +233,47 @@ If in doubt which Dacpac to use try the AzureMcIntashLaptops.dacpac file to recr
 ---
 # How to Run this Web Application
 
-TEST
+1. Download Microsoft Visual Studio (Community Edition is Free)
+2. Clone the project by going to "Git" in the menu and then "Clone Repository"
+3. Open the SQL Server Object Explorer by clicking on "View" in the menu then clicking on "SQL Server Object Explorer"
+4. Create a new database named McIntash.
+- Click on the "local (SQL Server ..." and right click on "Databases."  Then click "Add New Database"
+5. Right click on the new "McIntash" database and select "Publish Data-tier Application"
+6. Click "Browse" and navigate to the project folder entitled "McIntashLaptops"
+7. Select AzureMcIntashLaptops.dacpac then click "Open."  Then click "Publish"
+8. Wait until the output is finished and green checkmarks show up in the output.
+9. Click on the arrow next to the database.  In the bottom right should be a properties window.
+10. Scroll down to "Connection String" and double click until the box to the right is highlighted.
+- Press the "CTRL" and "C" buttons simultaneously.
+- If the connection string does not work then copy the following:
+Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=McIntash;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+12. Use the "Solution Explorer" to the right to navigate to "Services/LaptopDAO.cs"
+13. Select everything between the double quotes that is the string being assigned to "connectionString"
+14. Press the "CTRL" and "V" buttons simultaneously.
+15. Use the Solution Explorer to navigate to "Services/CheckoutDAO.cs"
+16. Select everything between the double quotes that is the string being assigned to "connectionString"
+17. Press the "CTRL" and "V" buttons simultaneously.
+18. Use the Solution Explorer to navigate to "appsettings.json"
+19. Select the line with "ApplicationDbContextConnection" and replace it with the following:
+"ApplicationDbContextConnection": "Server=(localdb)\\mssqllocaldb;Database=McIntash;Trusted_Connection=True;MultipleActiveResultSets=true"
+20. Click the "Save All" button that looks like two blue floppy disks in the top left corner of the application.
+21. Click the green play button to the left of "McIntashLaptops" at the top of the program.
+
+At this point the application should run.
+You should be able to click "Login" and login using the following credentials:
+
+Email: Manager@gmail.com
+Password: PlayHard2!
+
+For setting up Stripe to process purchases then please see the following section.
+
+[Back to Table of Contents](#Table-of-Contents)
+
+--- 
+
+##### Setup Stripe
+
+
 
 [Back to Table of Contents](#Table-of-Contents)
 
