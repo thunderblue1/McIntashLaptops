@@ -55,6 +55,25 @@ The web application is built on ASP.NET MVC.  It uses the Identity Framework in 
 It uses jQuery to asynchronously call actions and update content on the page such as cards or table rows.
 Stripe is used to process payments and a purchase (the total bill) and orders (laptops purchased) are saved upon a successful Stripe payment.
 
+##### Frameworks and Services Leveraged
+
+| Logo   | Technology | Description |
+|--------|------------|-------------|
+| ![Azure Logo](https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg) | Azure | Microsoft Azure is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. |
+| ![ASP.NET Logo](https://upload.wikimedia.org/wikipedia/commons/2/2c/ASP.NET_logo.png) | ASP.NET | ASP.NET is an open-source, server-side web application framework designed for web development to produce dynamic web pages. |
+| ![jQuery Logo](https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg) | jQuery | jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, and animation much simpler. |
+| ![Stripe Logo](https://upload.wikimedia.org/wikipedia/commons/4/4f/Stripe_Logo%2C_revised_2016.svg) | Stripe | Stripe is a technology company that builds economic infrastructure for the internet, providing payment processing software and APIs for e-commerce websites and mobile applications. |
+
+##### Languages Used
+
+| Logo   | Technology | Description |
+|--------|------------|-------------|
+| ![HTML Logo](https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg) | HTML | HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. |
+| ![CSS Logo](https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg) | CSS | CSS (Cascading Style Sheets) is a stylesheet language used for describing the presentation of a document written in HTML or XML. |
+| ![JavaScript Logo](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png) | JavaScript | JavaScript is a high-level, often just-in-time compiled, and multi-paradigm programming language that conforms to the ECMAScript specification. |
+| ![C# Logo](https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png) | C# | C# (pronounced "C-sharp") is a modern, object-oriented programming language developed by Microsoft as part of its .NET initiative. |
+| ![T-SQL Logo](https://upload.wikimedia.org/wikipedia/commons/8/87/Microsoft_SQL_Server_Logo.svg) | T-SQL | T-SQL (Transact-SQL) is Microsoft's proprietary extension to SQL (Structured Query Language) used to interact with relational databases. |
+
 ### Who made this?
 
 John Keen made this as a senior project with the knowledge and experience he gained from his Grand Canyon University education.
