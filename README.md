@@ -259,10 +259,31 @@ The third endpoint can be used to access a single product by the id of the produ
 
 # Coding References
 
+Authorization to access a controllers or it's methods is controlled by the use of tags.
+The Authorize tag is how ASP.NET controls authorized access to controllers or actions.
+
+The following code is how my application allows a user with the LaptopManager role to access the CRUD functionality of the Web Application.
+
+![AuthorizeLaptopManager](<./Project Documents/images/Coding-AuthorizeController.jpg>)
+
+If a controller is added and needs to be protected then an attribute tag similar to the code reference needs to be added to the controller.
+
+You will also need to create a role and add it to a user for that controller to be accessed:
+
+1. A role can be created by logging in as a user with the "Manager" role such as the Manager@gmail.com account with a password of "PlayHard2!".
+2. Then click on "Hello Manager@gmail.com!">"Manage Roles">"Create New Role"
+3. Insert the name of the new role and click "Create."
+4. Then click on "Hello Manager@gmail.com!">"Manage Users Roles">"Manage Roles" next to the user you wish to add the role to.
+5. Click "Add" next to the role you created.
+6. Logout and log back in as the user you wish to use to access the new controller
+
+
 [Back to Table of Contents](#Table-of-Contents)
 
 ---
 # Implementation Details
+
+
 
 [Back to Table of Contents](#Table-of-Contents)
 
