@@ -59,10 +59,10 @@ Stripe is used to process payments and a purchase (the total bill) and orders (l
 
 | Logo   | Technology | Description |
 |--------|------------|-------------|
-| <img src="./Project%20Documents/Microsoft_Azure_Logo.svg" alt="Azure Logo" width="50" height="50"> | Azure | Microsoft Azure is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. |
-| <img src="./Project%20Documents/asp.png" alt="ASP.NET Logo" width="50" height="50"> | ASP.NET | ASP.NET is an open-source, server-side web application framework designed for web development to produce dynamic web pages. |
-| <img src="./Project%20Documents/JQuery_logo.svg" alt="jQuery Logo" width="50" height="50"> | jQuery | jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, and animation much simpler. |
-| <img src="./Project%20Documents/Stripe.png" alt="Stripe Logo" width="50" height="50"> | Stripe | Stripe is a technology company that builds economic infrastructure for the internet, providing payment processing software and APIs for e-commerce websites and mobile applications. |
+| <img src="./Project%20Documents/logos/Microsoft_Azure_Logo.svg" alt="Azure Logo" width="50" height="50"> | Azure | Microsoft Azure is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. |
+| <img src="./Project%20Documents/logos/asp.png" alt="ASP.NET Logo" width="50" height="50"> | ASP.NET | ASP.NET is an open-source, server-side web application framework designed for web development to produce dynamic web pages. |
+| <img src="./Project%20Documents/logos/JQuery_logo.svg" alt="jQuery Logo" width="50" height="50"> | jQuery | jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, and animation much simpler. |
+| <img src="./Project%20Documents/logos/Stripe.png" alt="Stripe Logo" width="50" height="50"> | Stripe | Stripe is a technology company that builds economic infrastructure for the internet, providing payment processing software and APIs for e-commerce websites and mobile applications. |
 
 ##### Languages Used
 
