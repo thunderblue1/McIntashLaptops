@@ -59,21 +59,21 @@ Stripe is used to process payments and a purchase (the total bill) and orders (l
 
 | Logo   | Technology | Description |
 |--------|------------|-------------|
-| <img src="./Project%20Documents/logos/Microsoft_Azure_Logo.svg" alt="Azure Logo" width="100" height="50"> | Azure | Microsoft Azure is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. |
-| <img src="./Project%20Documents/logos/asp.png" alt="ASP.NET Logo" width="50" height="50"> | ASP.NET | ASP.NET is an open-source, server-side web application framework designed for web development to produce dynamic web pages. |
-| <img src="./Project%20Documents/logos/JQuery_logo.svg" alt="jQuery Logo" width="100" height="50"> | jQuery | jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, and animation much simpler. |
-| <img src="./Project%20Documents/logos/Stripe.png" alt="Stripe Logo" width="100" height="50"> | Stripe | Stripe is a technology company that builds economic infrastructure for the internet, providing payment processing software and APIs for e-commerce websites and mobile applications. |
+| <img src="./Project%20Documents/logos/Microsoft_Azure_Logo.svg" alt="Azure Logo" width="175" height="100"> | Azure | Microsoft Azure is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. |
+| <img src="./Project%20Documents/logos/asp.png" alt="ASP.NET Logo" width="100" height="100"> | ASP.NET | ASP.NET is an open-source, server-side web application framework designed for web development to produce dynamic web pages. |
+| <img src="./Project%20Documents/logos/JQuery_logo.svg" alt="jQuery Logo" width="175" height="100"> | jQuery | jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, and animation much simpler. |
+| <img src="./Project%20Documents/logos/Stripe.png" alt="Stripe Logo" width="175" height="100"> | Stripe | Stripe is a technology company that builds economic infrastructure for the internet, providing payment processing software and APIs for e-commerce websites and mobile applications. |
 
 ##### Languages Used
 
 
 | Logo   | Technology | Description |
 |--------|------------|-------------|
-| <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Logo" width="50" height="50"> | HTML | HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS Logo" width="50" height="50"> | CSS | CSS (Cascading Style Sheets) is a stylesheet language used for describing the presentation of a document written in HTML or XML. |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo" width="50" height="50"> | JavaScript | JavaScript is a high-level, often just-in-time compiled, and multi-paradigm programming language that conforms to the ECMAScript specification. |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="C# Logo" width="50" height="50"> | C# | C# (pronounced "C-sharp") is a modern, object-oriented programming language developed by Microsoft as part of its .NET initiative. |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Microsoft_SQL_Server_Logo.svg" alt="T-SQL Logo" width="50" height="50"> | T-SQL | T-SQL (Transact-SQL) is Microsoft's proprietary extension to SQL (Structured Query Language) used to interact with relational databases. |
+| <img src="./Project%20Documents/logos/HTML5.svg" alt="HTML Logo" width="100" height="100"> | HTML | HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. |
+| <img src="./Project%20Documents/logos/CSS3_logo_and_wordmark.svg" alt="CSS Logo" width="100" height="100"> | CSS | CSS (Cascading Style Sheets) is a stylesheet language used for describing the presentation of a document written in HTML or XML. |
+| <img src="./Project%20Documents/logos/JavaScript-logo.png" alt="JavaScript Logo" width="100" height="100"> | JavaScript | JavaScript is a high-level, often just-in-time compiled, and multi-paradigm programming language that conforms to the ECMAScript specification. |
+| <img src="./Project%20Documents/logos/Csharp_Logo.png" alt="C# Logo" width="100" height="100"> | C# | C# (pronounced "C-sharp") is a modern, object-oriented programming language developed by Microsoft as part of its .NET initiative. |
+| <img src="./Project%20Documents/logos/sql.jpg" alt="T-SQL Logo" width="100" height="100"> | T-SQL | T-SQL (Transact-SQL) is Microsoft's proprietary extension to SQL (Structured Query Language) used to interact with relational databases. |
 
 
 
