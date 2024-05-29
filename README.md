@@ -277,12 +277,78 @@ You will also need to create a role and add it to a user for that controller to 
 5. Click "Add" next to the role you created.
 6. Logout and log back in as the user you wish to use to access the new controller
 
-
 [Back to Table of Contents](#Table-of-Contents)
 
 ---
-# Implementation Details
+# Project Implementation Details
 
+| Class or File                                               | Description                                                                                                                                |
+|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| ~\Areas\Identity\Data\ApplicationDbContext.cs               | This is used by the entity framework and required by the Identity Framework. This is only used by the Identity Framework for Registration and Login. |
+| ~\Areas\Identity\Data\ApplicationUser.cs                    | This is a custom class that is based on IdentityUser utilized by the Identity Framework. The registration page and ApplicationDbContext have been customized to handle ApplicationUser and its properties instead of IdentityUser. The database has been updated to accommodate the ApplicationUser for the Identity Framework. |
+| HomeController.cs                                           | This returns the welcome page upon arrival and logout.                                                                                      |
+| LaptopAPIController.cs                                      | This is the REST API and has the endpoints for returning all of the laptop records, laptop records for search results, and one particular laptop record. |
+| LaptopController.cs                                         | This controller has all of the actions for CRUD operations. Only users with LaptopManager Role can access this controller.                  |
+| ShopController                                              | This controller is accessible to any user. It is used for shopping. It includes actions such as viewing one laptop's details, adding items to cart, removing items from cart, viewing cart, and checking out. |
+| UserRolesController.cs                                      | This controller has actions for managing the creation and deletion of roles from the database. It also has actions for assigning or unassigning roles to users. |
+| CheckoutModel                                               | This is used for transferring address form data to a controller action at checkout.                                                         |
+| ErrorViewModel                                              | This is used in the event of an error on the HomeController. It comes default with Asp.NET Core MVC projects.                               |
+| LaptopModel                                                 | This is used to transfer data regarding records stored in the laptop relation of the database.                                              |
+| LaptopModelDTO                                              | This is like the LaptopModel but includes a quantity property. It is used for the shopping cart and keeping track of how many items will be purchased. It is used to insert laptop records into the orders relation of the database. |
+| OrderModel                                                  | This is used to access or update records in the orders relation.                                                                            |
+| PurchaseModel                                               | This is used to access or update records in the purchase relation.                                                                          |
+| CheckoutDAO                                                 | This is the Data Access Object Class for checking out. An instance of this is used for checking out and accessing purchases and orders.      |
+| DataService                                                 | This is used to store search results so that the results are the same while switching between a "list" view with a table and a "display" view with a grid of cards. |
+| ICheckoutService                                            | This is the interface for the CheckoutDAO.                                                                                                  |
+| ILaptopDataService                                          | This is the interface for the LaptopDAO.                                                                                                    |
+| ISecurity                                                   | This is the interface for the SecurityService.                                                                                              |
+| LaptopDAO                                                   | This is the Data Access Object Class for Creating, Reading, Updating, or Deleting laptop records. An instance of this is used for checking out and accessing purchases and orders. |
+| SecurityService                                             | This is a service that can be used for encrypting vital information.                                                                        |
+| ShoppingCartService                                         | This stores the shopping cart and contains methods for maintaining the cart or fulfilling a purchase once the checkout process is complete.  |
+| ~\Views\Home\Index.cshtml                                   | This is the view for welcoming users. It is shown upon arrival and after logging out.                                                       |
+| ~\Views\Home\Privacy.cshtml                                 | This is the view for expressing security and privacy concerns regarding the web application.                                                |
+| ~\Views\Laptop\_createModal.cshtml                          | This is a partial view with a modal containing a form required for creating a laptop record.                                                |
+| ~\Views\Laptop\_Display.cshtml                              | This is a partial view that holds a grid containing cards created by iterating over an IEnumerable<LaptopModel>.                             |
+| ~\Views\Laptop\_editModal.cshtml                            | This is a partial view containing a form for editing a laptop record.                                                                       |
+| ~\Views\Laptop\_laptopCard.cshtml                           | This is a partial view containing a card for a LaptopModel with buttons for viewing details, updating, or deleting the laptop record from the database. |
+| ~\Views\Laptop\_laptopRow.cshtml                            | This is a partial view containing a table row for a LaptopModel with buttons for viewing details, updating, or deleting the laptop record from the database. |
+| ~\Views\Laptop\_List.cshtml                                 | This is a partial view containing a table. The table has rows created by iterating over an IEnumerable<LaptopModel>.                        |
+| ~\Views\Laptop\_searchForm                                  | This partial view is used to search laptops for the Manage Laptops section. The results are stored in the dataService instance and passed as a model to the _List or _Display partial views. |
+| ~\Views\Laptop\Index.cshtml                                 | This is the main view for CRUD operations. It is the view that is returned when the Manage Laptops menu button is clicked on.               |
+| ~\Views\Laptop\ShowOneLaptop.cshtml                         | This is a view for viewing the details of a particular laptop record. It uses a LaptopModel.                                                |
+| ~\Views\Shared\_Layout.cshtml                               | This is the main view that is the structure for the entire web application.                                                                 |
+| ~\Views\Shared\_LoginPartial.cshtml                         | This provides links for accessing the profile page, registering, logging in, or logging out.                                                |
+| ~\Views\Shared\_navbar.cshtml                               | This is the NavBar for the entire application.                                                                                              |
+| ~\Views\Shared\_ValidationScriptsPartial.cshtml             | This contains client-side validation scripts for logging in and registration.                                                               |
+| ~\Views\Shared\Error.cshtml                                 | This default partial view is provided for use in the event of an error.                                                                     |
+| ~\Views\Shared\_details.cshtml                              | This is a partial view for creating a Description List out of a LaptopModel.                                                                |
+| ~\Views\Shop\_checkout.cshtml                               | This is a partial view containing a modal with a form requesting shipping information pertinent to the purchase relation of the database.   |
+| ~\Views\Shop\_Display.cshtml                                | A partial view used to display a grid of cards based on IEnumerable<LaptopModel>.                                                           |
+| ~\Views\Shop\_laptopCard.cshtml                             | A partial view with a bootstrap card used with properties of a LaptopModel. Used in _Display for the shopping section.                      |
+| ~\Views\Shop\_laptopRowDTO.cshtml                           | A partial view with a table row filled with properties of a LaptopModelDTO object. This is used to update the cart with a new row when the quantity of an item in the cart is changed. |
+| ~\Views\Shop\_searchForm.cshtml                             | This is the partial view with a form for searching laptop records in the shopping section. It posts to the SearchResults action of the ShopController. |
+| ~\Views\Shop\Cart.cshtml                                    | This is the Cart view which contains a checkout button and a table of rows made with an IEnumerable<LaptopModel>.                           |
+| ~\Views\Shop\Index.cshtml                                   | This is the default view for the ShopController. It contains a grid of cards based on an IEnumerable<LaptopModel> or list returned from the laptopDAO.All() or laptopDAO.SearchLaptops(searchTerm). |
+| ~\Views\Shop\ShowOneLaptop.cshtml                           | This view displays a Data List that is populated with information from a LaptopModel. It has an add to cart button, a back to shop button, and a Cart button for navigating to the cart. |
+| ~\Views\Shop\ThankYou.cshtml                                | This page is shown upon completion of the Stripe payment.                                                                                   |
+| ~\Views\Shop\PaymentFail.cshtml                             | Informs user their payment doesn’t have paid status.                                                                                        |
+| ~\Views\UserRoles\_addRoles.cshtml                          | This partial view displays a table of existing roles in the database with each row for each role containing a hyperlink to add the role to a user. The action of the hyperlink returns the ManageUser view. |
+| ~\Views\UserRoles\_searchForm.cshtml                        | This partial view is used to search for users in the UserManager by the search criteria and display them on the ShowUsers view.             |
+| ~\Views\UserRoles\_userDetails.cshtml                       | This partial view is used to show the user's details on the ManageRoles view.                                                               |
+| ~\Views\UserRoles\_userRoles.cshtml                         | This partial view shows the roles that exist in the database for the particular user that is being managed.                                 |
+| ~\Views\UserRoles\Create.cshtml                             | This view has a form to input a new role. The form submits to the SubmitRole action. The role is persisted to the database in the SubmitRole action and the Index view is returned. |
+| ~\Views\UserRoles\Index.cshtml                              | This view displays all of the roles currently in the database. Each IdentityRole in the table has a "delete" hyperlink for removing the role from the database. A create button at the top links to the Create view. |
+| ~\Views\UserRoles\ManageRoles.cshtml                        | This view is where a Manager can assign or unassign roles to a particular user.                                                             |
+| ~\Views\UserRoles\ShowUsers.cshtml                          | This is used to show users in the database. Users can be searched and each user is in a row of a table and each row has a link to the ManageRoles view where roles can be assigned or unassigned to a user. |
+| appsettings.json                                            | I use this to store the Stripe keys for the application.                                                                                    |
+| Program.cs                                                  | This file is used to configure and run the application.                                                                                     |
+| ~\Areas\Identity\Pages\Account\Register.cshtml              | This page contains a form with code behind that is used for registering a user.                                                             |
+| ~\Areas\Identity\Pages\Account\Register.cshtml.cs           | Code behind for Register                                                                                                                    |
+| ~\Areas\Identity\Pages\Account\Login.cshtml                 | This page is used for logging in.                                                                                                           |
+| ~\Areas\Identity\Pages\Account\Login.cshtml.cs              | Code behind for Login                                                                                                                       |
+| ~\Areas\Identity\Pages\Account\Logout.cshtml                | This page is used for logging out.                                                                                                          |
+| ~\Areas\Identity\Pages\Account\Logout.cshtml.cs             | Code behind for Logout                                                                                                                      |
+| ~\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml     | Profile navigation                                                                                                                          |
 
 
 [Back to Table of Contents](#Table-of-Contents)
