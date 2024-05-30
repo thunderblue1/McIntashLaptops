@@ -17,8 +17,8 @@ https://mcintash.azurewebsites.net
 ## Table of Contents
 
 [Project Overview](#Project-Overview)
-- [What is the McIntash Laptops Project?](#What-is-the-McIntash-Laptops-Project?)
-- [Who made this?](#Who-made-this?)
+- [What is the McIntash Laptops Project?](#What-is-the-McIntash-Laptops-Project\?)
+- [Who made this?](#Who-made-this\?)
 
 [Project Design](#Project-Design)
 - [Site Map](#Site-Map)
