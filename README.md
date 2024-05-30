@@ -17,8 +17,8 @@ https://mcintash.azurewebsites.net
 ## Table of Contents
 
 [Project Overview](#Project-Overview)
-- [What is the McIntash Laptops Project?](#The-McIntash-Laptops-Project)
-- [Who made this?](#Who-made-this?)
+- [The McIntash Laptops Project](#The-McIntash-Laptops-Project)
+- [Web Application Creator](#Web-Application-Creator)
 
 [Project Design](#Project-Design)
 - [Site Map](#Site-Map)
@@ -78,7 +78,7 @@ Stripe is used to process payments and a purchase (the total bill) and orders (l
 
 
 
-### Who made this?
+### Web Application Creator
 
 John Keen made this as a senior project with the knowledge and experience he gained from his Grand Canyon University education.
 
