@@ -63,7 +63,7 @@ Stripe is used to process payments and a purchase (the total bill) and orders (l
 | <img src="./Project%20Documents/logos/asp.png" alt="ASP.NET Logo" width="100" height="100"> | ASP.NET | ASP.NET is an open-source, server-side web application framework designed for web development to produce dynamic web pages. |
 | <img src="./Project%20Documents/logos/JQuery_logo.svg" alt="jQuery Logo" width="175" height="100"> | jQuery | jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, and animation much simpler. |
 | <img src="./Project%20Documents/logos/Stripe.png" alt="Stripe Logo" width="175" height="100"> | Stripe | Stripe is a technology company that builds economic infrastructure for the internet, providing payment processing software and APIs for e-commerce websites and mobile applications. |
-| <img src="./Project%20Documents/logos/bootstrap_logo.svg" alt="Bootstrap Logo" width="100" height="100">| Bootstrap | Bootstrap is a popular open-source front-end framework for developing responsive and mobile-first websites using HTML, CSS, and JavaScript. |
+| <img src="./Project%20Documents/logos/bootstrap-logo.svg" alt="Bootstrap Logo" width="100" height="100">| Bootstrap | Bootstrap is a popular open-source front-end framework for developing responsive and mobile-first websites using HTML, CSS, and JavaScript. |
 
 ##### Languages Used
 
