@@ -29,3 +29,24 @@ body {
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
     color: black;
 }
+
+@media only screen and (max-width: 900px) {
+    .info td:nth-child(2),
+    .info td:nth-child(5),
+    .info td:nth-child(6),
+    .info td:nth-child(7),
+    .info td:nth-child(8),
+    .info td:nth-child(9),
+    .info td:nth-child(10),
+    .info td:nth-child(11),
+    .info th:nth-child(2),
+    .info th:nth-child(5),
+    .info th:nth-child(6),
+    .info th:nth-child(7),
+    .info th:nth-child(8),
+    .info th:nth-child(9),
+    .info th:nth-child(10),
+    .info th:nth-child(11) {
+        display: none;
+    }
+}
